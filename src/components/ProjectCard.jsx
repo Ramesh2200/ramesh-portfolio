@@ -20,6 +20,16 @@ export function ProjectCard({ project, index, onWatchDemo }) {
             </span>
           </div>
 
+          {project.logo && (
+            <div className="project-brand-badge mb-3">
+              <img
+                src={project.logo}
+                alt={`${project.title} logo`}
+                className="h-8 w-auto max-w-[220px] object-contain filter drop-shadow-[0_2px_8px_rgba(0,242,254,0.3)]"
+              />
+            </div>
+          )}
+
           <h3 className="project-title">{project.title}</h3>
           <p className="project-tagline">{project.tagline}</p>
 
@@ -64,7 +74,7 @@ export function ProjectCard({ project, index, onWatchDemo }) {
           </div>
 
           {/* Action CTAs */}
-          <div className="project-actions">
+          <div className="project-actions flex flex-wrap gap-2.5">
             <a
               href={project.liveUrl}
               target="_blank"
@@ -76,15 +86,30 @@ export function ProjectCard({ project, index, onWatchDemo }) {
               <ExternalLink size={16} />
             </a>
 
-            <button
-              type="button"
-              className="btn btn-secondary project-action-btn"
-              onClick={() => onWatchDemo(project)}
-              id={`demo-btn-${project.id}`}
-            >
-              <Play size={16} className="play-icon" />
-              <span>WATCH DEMO</span>
-            </button>
+            {project.githubUrl && (
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-secondary project-action-btn"
+                id={`repo-btn-${project.id}`}
+              >
+                <span>GITHUB SOURCE</span>
+                <ExternalLink size={16} />
+              </a>
+            )}
+
+            {project.videoFile && (
+              <button
+                type="button"
+                className="btn btn-secondary project-action-btn"
+                onClick={() => onWatchDemo(project)}
+                id={`demo-btn-${project.id}`}
+              >
+                <Play size={16} className="play-icon" />
+                <span>WATCH DEMO</span>
+              </button>
+            )}
           </div>
         </div>
 

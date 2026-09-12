@@ -22,8 +22,10 @@ export const projects = [
     entities: ["Users", "Vehicles", "Parking Slots", "Bookings", "Admin Users", "OTP Store", "Notifications"],
     liveUrl: "https://smart-parking-system-murex.vercel.app/",
     githubUrl: "https://github.com/Ramesh2200/smart-parking-system",
-    poster: "/assets/colorful-tech-bg.jpg",
-    fullExplanationImg: "/assets/colorful-tech-bg.jpg",
+    logo: "/assets/smart-parking-logo.svg",
+    logoMark: "/assets/smart-parking-mark.svg",
+    poster: "/assets/smart-parking-hero.jpg",
+    fullExplanationImg: "/assets/smart-parking-hero.jpg",
     gradient: "linear-gradient(135deg, rgba(0, 242, 254, 0.15) 0%, rgba(16, 185, 129, 0.05) 100%)",
     accentColor: "#00f2fe",
     metrics: [
