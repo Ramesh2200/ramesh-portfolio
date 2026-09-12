@@ -31,7 +31,6 @@ export function Hero({ onWatchIntro }) {
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [typingSpeed, setTypingSpeed] = useState(105);
-  const [useScriptFont, setUseScriptFont] = useState(true);
 
   useEffect(() => {
     const currentFullText = roles[currentRoleIndex];
@@ -114,58 +113,14 @@ export function Hero({ onWatchIntro }) {
               </span>
             </div>
 
-            {/* Narrative with Calligraphy Script Style (𝓣𝔂𝓹𝓮 𝓼𝓸𝓶𝓮𝓽𝓱𝓲𝓷𝓰 𝓽𝓸 𝓼𝓽𝓪𝓻𝓽) */}
-            <div className="max-w-2xl mx-auto lg:mx-0 mb-8">
-              <div className="flex items-center justify-between gap-3 mb-2.5">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-cyan-500/10 text-cyan-300 border border-cyan-500/25 backdrop-blur-md shadow-[0_0_15px_rgba(6,182,212,0.15)]">
-                  <Sparkles className="w-3.5 h-3.5 text-cyan-400 animate-pulse" />
-                  <span className="font-semibold tracking-wide">
-                    {useScriptFont ? "𝓒𝓪𝓵𝓵𝓲𝓰𝓻𝓪𝓹𝓱𝔂 𝓢𝓽𝔂𝓵𝓮" : "Standard Font"}
-                  </span>
-                </span>
-                <button
-                  type="button"
-                  onClick={() => setUseScriptFont(!useScriptFont)}
-                  className="text-xs text-slate-400 hover:text-cyan-300 transition-colors flex items-center gap-1.5 px-2 py-1 rounded-md hover:bg-white/[0.05] border border-transparent hover:border-cyan-500/30 cursor-pointer"
-                  title="Toggle between Script Calligraphy and Standard Font"
-                >
-                  <span className="underline decoration-dotted underline-offset-4">
-                    {useScriptFont ? "View Standard Font" : "View Script Font (𝓣𝔂𝓹𝓮)"}
-                  </span>
-                </button>
-              </div>
-
-              <p
-                className={`transition-all duration-300 leading-relaxed ${
-                  useScriptFont
-                    ? "font-script-calligraphy text-lg sm:text-xl md:text-[1.22rem] text-slate-100 font-medium tracking-wide drop-shadow-[0_2px_12px_rgba(6,182,212,0.18)]"
-                    : "text-base sm:text-lg text-slate-300 font-normal"
-                }`}
-                aria-label="Computer Science graduate from Yenepoya Institute of Technology (8.3 CGPA) with 6 months of professional training at Tap Academy. Skilled in building resilient web platforms across Java, Spring Boot, Python, Django, React.js, and relational databases."
-              >
-                {useScriptFont ? (
-                  <>
-                    𝓒𝓸𝓶𝓹𝓾𝓽𝓮𝓻 𝓢𝓬𝓲𝓮𝓷𝓬𝓮 𝓰𝓻𝓪𝓭𝓾𝓪𝓽𝓮 𝓯𝓻𝓸𝓶{" "}
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-200 to-fuchsia-300 font-bold drop-shadow-[0_0_12px_rgba(6,182,212,0.35)]">
-                      𝓨𝓮𝓷𝓮𝓹𝓸𝔂𝓪 𝓘𝓷𝓼𝓽𝓲𝓽𝓾𝓽𝓮 𝓸𝓯 𝓣𝓮𝓬𝓱𝓷𝓸𝓵𝓸𝓰𝔂 (8.3 𝓒𝓖𝓟𝓐)
-                    </span>{" "}
-                    𝔀𝓲𝓽𝓱 6 𝓶𝓸𝓷𝓽𝓱𝓼 𝓸𝓯 𝓹𝓻𝓸𝓯𝓮𝓼𝓼𝓲𝓸𝓷𝓪𝓵 𝓽𝓻𝓪𝓲𝓷𝓲𝓷𝓰 𝓪𝓽 𝓣𝓪𝓹 𝓐𝓬𝓪𝓭𝓮𝓶𝔂. 𝓢𝓴𝓲𝓵𝓵𝓮𝓭 𝓲𝓷 𝓫𝓾𝓲𝓵𝓭𝓲𝓷𝓰 𝓻𝓮𝓼𝓲𝓵𝓲𝓮𝓷𝓽 𝔀𝓮𝓫 𝓹𝓵𝓪𝓽𝓯𝓸𝓻𝓶𝓼 𝓪𝓬𝓻𝓸𝓼𝓼{" "}
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-orange-300 to-pink-400 font-bold">
-                      𝓙𝓪𝓿𝓪, 𝓢𝓹𝓻𝓲𝓷𝓰 𝓑𝓸𝓸𝓽, 𝓟𝔂𝓽𝓱𝓸𝓷, 𝓓𝓳𝓪𝓷𝓰𝓸, 𝓡𝓮𝓪𝓬𝓽.𝓳𝓼
-                    </span>
-                    , 𝓪𝓷𝓭 𝓻𝓮𝓵𝓪𝓽𝓲𝓸𝓷𝓪𝓵 𝓭𝓪𝓽𝓪𝓫𝓪𝓼𝓮𝓼.
-                  </>
-                ) : (
-                  <>
-                    Computer Science graduate from{" "}
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-indigo-300 to-fuchsia-300 font-bold">
-                      Yenepoya Institute of Technology (8.3 CGPA)
-                    </span>{" "}
-                    with 6 months of professional training at Tap Academy. Skilled in building resilient web platforms across Java, Spring Boot, Python, Django, React.js, and relational databases.
-                  </>
-                )}
-              </p>
-            </div>
+            {/* Clean Professional Narrative */}
+            <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto lg:mx-0 mb-8 leading-relaxed font-normal">
+              Computer Science graduate from{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-indigo-300 to-fuchsia-300 font-bold">
+                Yenepoya Institute of Technology (8.3 CGPA)
+              </span>{" "}
+              with 6 months of professional training at Tap Academy. Skilled in building resilient web platforms across Java, Spring Boot, Python, Django, React.js, and relational databases.
+            </p>
 
             {/* Call To Action Buttons */}
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 mb-10">
