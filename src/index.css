@@ -1,0 +1,290 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-dark: #050505;
+    --font-inter: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+    --cyan-primary: #06b6d4;
+    --cyan-glow: rgba(6, 182, 212, 0.35);
+    --indigo-primary: #6366f1;
+    --indigo-glow: rgba(99, 102, 241, 0.35);
+    --purple-primary: #a855f7;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-inter);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Dark Mode Defaults */
+  html:not(.light),
+  html[data-theme="dark"] {
+    background-color: #050505;
+    color: #f8fafc;
+    color-scheme: dark;
+  }
+
+  body:not(.light) {
+    background-color: #050505;
+    color: #f8fafc;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  /* Light / White Mode */
+  html.light,
+  html[data-theme="light"] {
+    background-color: #f8fafc;
+    color: #0f172a;
+    color-scheme: light;
+  }
+
+  html.light body {
+    background-color: #f8fafc;
+    color: #0f172a;
+  }
+
+  ::selection {
+    background-color: rgba(6, 182, 212, 0.35);
+    color: #ffffff;
+  }
+
+  /* Sleek Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #050505;
+  }
+  html.light ::-webkit-scrollbar-track {
+    background: #f1f5f9;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  html.light ::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #334155;
+  }
+}
+
+/* Glassmorphism Panels */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+html.light .glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html.light .glass-card {
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(6, 182, 212, 0.45);
+  box-shadow: 0 0 35px rgba(6, 182, 212, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transform: translateY(-3px);
+}
+
+html.light .glass-card:hover {
+  background: #ffffff;
+  border-color: rgba(6, 182, 212, 0.5);
+  box-shadow: 0 12px 35px rgba(6, 182, 212, 0.15);
+  transform: translateY(-3px);
+}
+
+/* Dot-Matrix and Technical Grid Texture */
+.dot-matrix {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+html.light .dot-matrix {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.06) 1px, transparent 1px);
+}
+
+.technical-grid {
+  background-size: 48px 48px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  mask-image: radial-gradient(ellipse 70% 50% at 50% 10%, #000 70%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 50% at 50% 10%, #000 70%, transparent 100%);
+}
+
+html.light .technical-grid {
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+}
+
+/* Circular Glowing Animated Ring Animations */
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes reverseSpinSlow {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 12s linear infinite;
+}
+
+.animate-reverse-spin {
+  animation: reverseSpinSlow 18s linear infinite;
+}
+
+/* Animated Shifting Mesh Orbs */
+@keyframes floatMesh1 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+    opacity: 0.5;
+  }
+  33% {
+    transform: translate(40px, -30px) scale(1.15);
+    opacity: 0.7;
+  }
+  66% {
+    transform: translate(-30px, 20px) scale(0.95);
+    opacity: 0.55;
+  }
+}
+
+@keyframes floatMesh2 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+    opacity: 0.45;
+  }
+  33% {
+    transform: translate(-35px, 35px) scale(1.1);
+    opacity: 0.65;
+  }
+  66% {
+    transform: translate(25px, -20px) scale(0.9);
+    opacity: 0.5;
+  }
+}
+
+.orb-cyan {
+  animation: floatMesh1 14s ease-in-out infinite;
+}
+
+.orb-indigo {
+  animation: floatMesh2 18s ease-in-out infinite;
+}
+
+/* Gradient Text Utilities */
+.text-gradient-cyan {
+  background: linear-gradient(135deg, #ffffff 0%, #38bdf8 50%, #06b6d4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+html.light .text-gradient-cyan {
+  background: linear-gradient(135deg, #0f172a 0%, #0284c7 60%, #0891b2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-indigo {
+  background: linear-gradient(135deg, #ffffff 0%, #818cf8 50%, #6366f1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+html.light .text-gradient-indigo {
+  background: linear-gradient(135deg, #0f172a 0%, #4f46e5 60%, #6366f1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Light mode text color overrides for readability */
+html.light .text-white {
+  color: #0f172a !important;
+}
+
+html.light .text-slate-100 {
+  color: #0f172a !important;
+}
+
+html.light .text-slate-200 {
+  color: #1e293b !important;
+}
+
+html.light .text-slate-300 {
+  color: #334155 !important;
+}
+
+html.light .text-slate-400 {
+  color: #64748b !important;
+}
+
+html.light .bg-\[\#050505\] {
+  background-color: #f8fafc !important;
+}
+
+html.light .bg-\[\#03060d\],
+html.light .bg-\[\#070b14\],
+html.light .bg-\[\#0a0f1d\],
+html.light .bg-\[\#090d16\],
+html.light .bg-\[\#0c101a\] {
+  background-color: #ffffff !important;
+}
+
+html.light header {
+  background-color: rgba(255, 255, 255, 0.85) !important;
+  border-bottom-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+html.light footer {
+  background-color: #f1f5f9 !important;
+  border-top-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Monospace font class */
+.font-mono-code {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Background image blending in light mode */
+html.light [style*="colorful-tech-bg.jpg"],
+html.light [style*="vibrant-mesh-bg.jpg"] {
+  mix-blend-mode: multiply !important;
+  opacity: 0.15 !important;
+}

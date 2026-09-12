@@ -1,0 +1,232 @@
+.about-section {
+  position: relative;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 32px;
+  align-items: stretch;
+}
+
+/* Professional Summary Card */
+.about-summary-card {
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.summary-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.summary-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--accent-lime);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.shield-icon {
+  color: var(--accent-lime);
+}
+
+.summary-status {
+  font-size: 11px;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  border: 1px solid var(--border-subtle);
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+}
+
+.summary-text {
+  font-size: 17px;
+  line-height: 1.8;
+  color: #e2e8f0;
+  font-style: italic;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.key-strengths-box {
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-md);
+  padding: 20px;
+}
+
+.strengths-title {
+  font-size: 13px;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+  margin-bottom: 14px;
+}
+
+.strengths-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.strength-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-full);
+  padding: 5px 12px;
+  font-size: 12px;
+  font-family: var(--font-mono);
+  color: #cbd5e1;
+  transition: all var(--transition-fast);
+}
+
+.strength-tag:hover {
+  background: rgba(0, 255, 135, 0.08);
+  border-color: rgba(0, 255, 135, 0.3);
+  color: #ffffff;
+}
+
+.tag-check {
+  color: var(--accent-lime);
+}
+
+.about-intro-cta-box {
+  margin-top: 22px;
+  padding: 16px 20px;
+  background: linear-gradient(135deg, rgba(0, 255, 135, 0.08) 0%, rgba(168, 85, 247, 0.08) 100%);
+  border: 1px solid rgba(0, 255, 135, 0.3);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.intro-cta-text-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.intro-tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent-lime);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.intro-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.intro-pitch-btn {
+  white-space: nowrap;
+}
+
+/* 4 Domains Grid */
+.domains-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.domain-card {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.domain-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.domain-icon-wrapper {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.domain-icon-blue {
+  color: #38bdf8;
+}
+
+.domain-icon-green {
+  color: #22c55e;
+}
+
+.domain-icon-orange {
+  color: #f59e0b;
+}
+
+.domain-icon-purple {
+  color: #a855f7;
+}
+
+.domain-title {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: #ffffff;
+}
+
+.domain-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.domain-list-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.domain-bullet {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent-lime);
+  flex-shrink: 0;
+}
+
+@media (max-width: 960px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 580px) {
+  .domains-grid {
+    grid-template-columns: 1fr;
+  }
+  .about-summary-card {
+    padding: 24px 18px;
+  }
+}

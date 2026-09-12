@@ -1,0 +1,180 @@
+.contact-section {
+  position: relative;
+  padding-bottom: 120px;
+}
+
+.contact-wrapper {
+  padding: 60px 48px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-color: rgba(0, 255, 135, 0.2);
+  background: radial-gradient(circle at 50% 0%, rgba(18, 26, 38, 0.95) 0%, rgba(10, 13, 19, 0.98) 100%);
+}
+
+.contact-glow-blob {
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 400px;
+  height: 200px;
+  background: radial-gradient(ellipse, rgba(0, 255, 135, 0.15) 0%, transparent 70%);
+  filter: blur(50px);
+  pointer-events: none;
+}
+
+.contact-header {
+  margin-bottom: 40px;
+}
+
+.contact-title {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+  color: #ffffff;
+}
+
+.contact-subtitle {
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  color: var(--text-secondary);
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 800px;
+  margin: 0 auto 36px;
+}
+
+.contact-channel-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  text-align: left;
+  transition: all var(--transition-fast);
+}
+
+.contact-channel-card:hover {
+  border-color: var(--accent-lime);
+  background: rgba(0, 255, 135, 0.04);
+}
+
+.channel-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: rgba(0, 255, 135, 0.08);
+  border: 1px solid rgba(0, 255, 135, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.channel-icon {
+  color: var(--accent-lime);
+}
+
+.channel-details {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.channel-label {
+  font-size: 11px;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 2px;
+}
+
+.channel-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  text-decoration: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.channel-value:hover {
+  color: var(--accent-lime);
+}
+
+.channel-copy-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 8px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.channel-copy-btn:hover {
+  color: #ffffff;
+  border-color: var(--accent-lime);
+  background: rgba(0, 255, 135, 0.1);
+}
+
+.copied-check {
+  color: var(--accent-lime);
+}
+
+.contact-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 30px;
+}
+
+.download-resume-cta {
+  border-style: dashed;
+}
+
+.contact-location-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.pin-icon {
+  color: var(--accent-lime);
+}
+
+@media (max-width: 768px) {
+  .contact-wrapper {
+    padding: 36px 20px;
+  }
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+  .contact-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .contact-actions .btn {
+    width: 100%;
+  }
+}

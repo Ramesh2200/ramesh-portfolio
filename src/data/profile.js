@@ -1,0 +1,30 @@
+export const profile = {
+  name: "Ramesh K",
+  role: "Java Full Stack Developer",
+  tagline: "2026 Computer Science Graduate | Scalable Web Systems Architect",
+  location: "Karnataka, India",
+  email: "ballariramesh0825@gmail.com",
+  phone: "+91 7672047816",
+  github: "Ramesh2200",
+  githubUrl: "https://github.com/Ramesh2200",
+  linkedin: "ramesh-k-71243026a",
+  linkedinUrl: "https://www.linkedin.com/in/ramesh-k-71243026a",
+  resumePath: "/Ramesh_K_Resume.pdf",
+  certificatePath: "/Ramesh_K_Degree_Certificate.pdf",
+  certificateImg: "/assets/ramesh-degree-certificate.png",
+  usn: "4DM22CS080",
+  certificateNo: "PDC0005527",
+  headshot: "/ramesh_profile.jpg",
+  introVideo: "/videos/self-introduction.mp4",
+  college: "Yenepoya Institute of Technology",
+  university: "Visvesvaraya Technological University (VTU)",
+  cgpa: "8.3 CGPA",
+  degree: "B.E. in Computer Science & Engineering",
+  graduationYear: "2026",
+  summary:
+    "Passionate Java Full Stack Developer and 2026 Computer Science graduate from Yenepoya Institute of Technology (8.3 CGPA). 6 months of professional training experience at Tap Academy building scalable web architectures, REST APIs, and responsive UIs with Spring Boot, Hibernate, React.js, and MySQL.",
+  statusText: "AVAILABLE FOR IMMEDIATE OPPORTUNITIES",
+  heroHeading: "Engineering Resilient Full-Stack Architectures.",
+  heroSubtitle:
+    "Java Full Stack Developer & 2026 CSE Graduate specializing in building high-performance, scalable web systems using Spring Boot, Hibernate, React.js, and MySQL."
+};
