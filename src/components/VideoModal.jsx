@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { X, ExternalLink, PlayCircle, FileDown, Mail } from "lucide-react";
 import { profile } from "../data/profile";
+import { downloadResume } from "../utils/downloadResume";
 import "./VideoModal.css";
 
 function getEmbedUrl(url) {
@@ -146,7 +147,8 @@ export function VideoModal({ videoData, project, isOpen, onClose }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   download="Ramesh_K_Resume.pdf"
-                  className="btn btn-outline-lime btn-sm"
+                  onClick={(e) => downloadResume(e, "Ramesh_K_Resume.pdf", profile.resumePath)}
+                  className="btn btn-outline-lime btn-sm cursor-pointer"
                 >
                   <FileDown size={14} />
                   <span>Download Resume</span>

@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, Download, Code2 } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 import { profile } from "../data/profile";
+import { downloadResume } from "../utils/downloadResume";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -141,7 +142,8 @@ export function Navbar() {
           <a
             href={profile.resumePath}
             download="Ramesh_K_Resume.pdf"
-            className="flex items-center gap-2 px-4 py-2 text-xs font-semibold rounded-lg bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white shadow-[0_0_20px_rgba(6,182,212,0.3)] transition-all hover:scale-105 active:scale-95"
+            onClick={(e) => downloadResume(e, "Ramesh_K_Resume.pdf", profile.resumePath)}
+            className="flex items-center gap-2 px-4 py-2 text-xs font-semibold rounded-lg bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white shadow-[0_0_20px_rgba(6,182,212,0.3)] transition-all hover:scale-105 active:scale-95 cursor-pointer"
           >
             <Download className="w-3.5 h-3.5" />
             <span>Resume</span>
@@ -155,7 +157,8 @@ export function Navbar() {
           <a
             href={profile.resumePath}
             download="Ramesh_K_Resume.pdf"
-            className="p-2 rounded-lg bg-white/5 border border-white/10 text-cyan-400"
+            onClick={(e) => downloadResume(e, "Ramesh_K_Resume.pdf", profile.resumePath)}
+            className="p-2 rounded-lg bg-white/5 border border-white/10 text-cyan-400 cursor-pointer"
             title="Download Resume"
           >
             <Download className="w-4 h-4" />
@@ -201,7 +204,8 @@ export function Navbar() {
               <a
                 href={profile.resumePath}
                 download="Ramesh_K_Resume.pdf"
-                className="w-full flex items-center justify-center gap-2 py-2.5 text-xs font-semibold rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-600 text-white"
+                onClick={(e) => downloadResume(e, "Ramesh_K_Resume.pdf", profile.resumePath)}
+                className="w-full flex items-center justify-center gap-2 py-2.5 text-xs font-semibold rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-600 text-white cursor-pointer"
               >
                 <Download className="w-4 h-4" />
                 <span>Download Resume (PDF)</span>
