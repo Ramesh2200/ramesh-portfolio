@@ -181,6 +181,7 @@ export function Hero({ onWatchIntro }) {
                 href={profile.resumePath}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={(e) => downloadResume(e, "Ramesh_K_Resume.pdf", profile.resumePath)}
                 className="flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] border border-cyan-500/30 hover:border-cyan-400 text-slate-100 font-medium text-sm backdrop-blur-xl transition-all hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(6,182,212,0.15)] cursor-pointer"
               >
                 <FileText className="w-4 h-4 text-cyan-400" />
@@ -190,11 +191,12 @@ export function Hero({ onWatchIntro }) {
               <a
                 href={profile.resumePath}
                 download="Ramesh_K_Resume.pdf"
+                onClick={(e) => downloadResume(e, "Ramesh_K_Resume.pdf", profile.resumePath)}
                 className="flex items-center gap-2 px-4 py-3.5 rounded-xl bg-white/[0.02] hover:bg-white/[0.06] border border-white/10 hover:border-cyan-400/40 text-slate-300 hover:text-cyan-300 text-xs font-mono-code transition-all cursor-pointer"
-                title="Direct PDF Download"
+                title="Download and Open Resume PDF"
               >
                 <Download className="w-3.5 h-3.5 text-cyan-400" />
-                <span>Download</span>
+                <span>Download Resume</span>
               </a>
 
               {onWatchIntro && (

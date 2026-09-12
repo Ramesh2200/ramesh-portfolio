@@ -138,30 +138,28 @@ export function Navbar() {
             <span>Available to Hire</span>
           </div>
 
-          <a
-            href={profile.resumePath}
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            type="button"
+            onClick={(e) => downloadResume(e, "Ramesh_K_Resume.pdf", profile.resumePath)}
             className="flex items-center gap-2 px-4 py-2 text-xs font-semibold rounded-lg bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white shadow-[0_0_20px_rgba(6,182,212,0.3)] transition-all hover:scale-105 active:scale-95 cursor-pointer"
           >
             <FileText className="w-3.5 h-3.5" />
             <span>Resume</span>
-          </a>
+          </button>
         </div>
 
         {/* Mobile Menu Button */}
         <div className="flex md:hidden items-center gap-2">
           <ThemeToggle />
 
-          <a
-            href={profile.resumePath}
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            type="button"
+            onClick={(e) => downloadResume(e, "Ramesh_K_Resume.pdf", profile.resumePath)}
             className="p-2 rounded-lg bg-white/5 border border-white/10 text-cyan-400 cursor-pointer"
             title="Open Resume"
           >
             <FileText className="w-4 h-4" />
-          </a>
+          </button>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle Navigation Menu"
@@ -200,23 +198,28 @@ export function Navbar() {
             })}
 
             <div className="pt-3 border-t border-white/10 mt-2 flex flex-col gap-2">
-              <a
-                href={profile.resumePath}
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                type="button"
+                onClick={(e) => {
+                  setMobileMenuOpen(false);
+                  downloadResume(e, "Ramesh_K_Resume.pdf", profile.resumePath);
+                }}
                 className="w-full flex items-center justify-center gap-2 py-2.5 text-xs font-semibold rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-600 text-white cursor-pointer"
               >
                 <FileText className="w-4 h-4" />
-                <span>Open Resume (PDF)</span>
-              </a>
-              <a
-                href={profile.resumePath}
-                download="Ramesh_K_Resume.pdf"
+                <span>Open & View Resume (PDF)</span>
+              </button>
+              <button
+                type="button"
+                onClick={(e) => {
+                  setMobileMenuOpen(false);
+                  downloadResume(e, "Ramesh_K_Resume.pdf", profile.resumePath);
+                }}
                 className="w-full flex items-center justify-center gap-2 py-2 text-xs font-medium rounded-xl bg-white/5 border border-white/10 text-slate-300 hover:text-white cursor-pointer"
               >
                 <Download className="w-3.5 h-3.5 text-cyan-400" />
                 <span>Download PDF File</span>
-              </a>
+              </button>
             </div>
           </div>
         </div>

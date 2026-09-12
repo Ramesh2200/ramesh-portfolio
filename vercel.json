@@ -10,7 +10,7 @@
         },
         {
           "key": "Content-Disposition",
-          "value": "inline; filename=\"Ramesh_K_Resume.pdf\""
+          "value": "inline"
         },
         {
           "key": "Access-Control-Allow-Origin",

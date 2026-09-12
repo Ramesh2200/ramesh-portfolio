@@ -1,36 +1,53 @@
 /**
- * Handles resume interaction by:
- * 1. Opening the resume PDF in a new browser tab for immediate viewing and reading.
- * 2. Simultaneously triggering a file download so the PDF is saved to the user's device.
+ * Reliable resume handler:
+ * 1. Opens the interactive in-page Resume Modal immediately so the user sees the PDF on-screen.
+ * 2. Fetches the PDF blob and triggers a clean, unblocked file download to disk.
  */
 export function downloadResume(e, filename = "Ramesh_K_Resume.pdf", path = "/Ramesh_K_Resume.pdf") {
   if (e && e.preventDefault) {
     e.preventDefault();
   }
 
-  // 1. Immediately open the PDF in a new browser tab for instant reading / viewing
+  // 1. Immediately open the on-screen Resume Modal viewer
   try {
-    const newTab = window.open(path, "_blank", "noopener,noreferrer");
-    if (!newTab || newTab.closed || typeof newTab.closed === "undefined") {
-      // If popup was blocked, fallback by redirecting or standard anchor
-      console.warn("Popup blocked, fallback to direct navigation");
-    }
+    window.dispatchEvent(
+      new CustomEvent("open-resume-modal", {
+        detail: { filename, path }
+      })
+    );
   } catch (err) {
-    console.error("Window open error:", err);
+    console.warn("Event dispatch error:", err);
   }
 
-  // 2. Also trigger a direct download so the file is saved locally
+  // 2. Fetch blob and trigger direct download
   try {
-    const link = document.createElement("a");
-    link.href = path;
-    link.download = filename;
-    link.style.display = "none";
-    document.body.appendChild(link);
-    link.click();
-    setTimeout(() => {
-      document.body.removeChild(link);
-    }, 1200);
+    fetch(path)
+      .then((res) => {
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        return res.blob();
+      })
+      .then((blob) => {
+        const blobUrl = window.URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.style.display = "none";
+        a.href = blobUrl;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(() => {
+          window.URL.revokeObjectURL(blobUrl);
+          document.body.removeChild(a);
+        }, 1000);
+      })
+      .catch((err) => {
+        console.warn("Blob fetch download error, using anchor fallback:", err);
+        const a = document.createElement("a");
+        a.href = path;
+        a.download = filename;
+        a.target = "_blank";
+        a.click();
+      });
   } catch (err) {
-    console.error("Direct download error:", err);
+    console.error("Download error:", err);
   }
 }

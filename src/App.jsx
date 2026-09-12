@@ -5,6 +5,7 @@ import { Footer } from "./components/Footer";
 import { VideoModal } from "./components/VideoModal";
 import { VoiceChatbot } from "./components/VoiceChatbot";
 import { LoadingScreen } from "./components/LoadingScreen";
+import { ResumeModal } from "./components/ResumeModal";
 import { HomePage } from "./pages/HomePage";
 import { SkillsPage } from "./pages/SkillsPage";
 import { ProjectsPage } from "./pages/ProjectsPage";
@@ -25,7 +26,15 @@ function ScrollToTop() {
 
 export function App() {
   const [introModalOpen, setIntroModalOpen] = useState(false);
+  const [resumeModalOpen, setResumeModalOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+
+  // Global listener for resume modal opens (from any button or utility)
+  useEffect(() => {
+    const handleOpenResume = () => setResumeModalOpen(true);
+    window.addEventListener("open-resume-modal", handleOpenResume);
+    return () => window.removeEventListener("open-resume-modal", handleOpenResume);
+  }, []);
 
   return (
     <Router>
@@ -91,6 +100,12 @@ export function App() {
             videoFile: profile.introVideo,
             poster: profile.headshot
           }}
+        />
+
+        {/* Interactive Resume Viewer Modal */}
+        <ResumeModal
+          isOpen={resumeModalOpen}
+          onClose={() => setResumeModalOpen(false)}
         />
       </div>
     </Router>
