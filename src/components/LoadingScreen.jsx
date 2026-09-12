@@ -3,59 +3,82 @@ import "./LoadingScreen.css";
 
 export function LoadingScreen({ onFinish }) {
   const [progress, setProgress] = useState(0);
-  const [stepText, setStepText] = useState("Initializing Java Virtual Machine...");
+  const [typedText, setTypedText] = useState("");
   const [isFading, setIsFading] = useState(false);
 
-  useEffect(() => {
-    const steps = [
-      { p: 20, text: "Initializing Core Java runtime..." },
-      { p: 45, text: "Bootstrapping Spring Boot & REST APIs..." },
-      { p: 70, text: "Mounting React component hierarchy..." },
-      { p: 90, text: "Establishing MySQL & Hibernate schemas..." },
-      { p: 100, text: "Workspace Ready." }
-    ];
+  const fullRole = "Full Stack Developer";
 
-    let currentStep = 0;
-    const interval = setInterval(() => {
-      currentStep++;
-      if (currentStep < steps.length) {
-        setProgress(steps[currentStep].p);
-        setStepText(steps[currentStep].text);
-      } else {
-        clearInterval(interval);
+  useEffect(() => {
+    const startTime = Date.now();
+    const duration = 2000; // Exact 2.0-second loading transition
+
+    // Typewriter effect synced to the 2 second duration
+    const typingInterval = setInterval(() => {
+      const elapsed = Date.now() - startTime;
+      const progressRatio = Math.min(elapsed / 1400, 1);
+      const charsToShow = Math.floor(progressRatio * fullRole.length);
+      setTypedText(fullRole.substring(0, charsToShow));
+
+      const currentProgress = Math.min(Math.floor((elapsed / duration) * 100), 100);
+      setProgress(currentProgress);
+
+      if (elapsed >= duration) {
+        clearInterval(typingInterval);
+        setProgress(100);
+        setTypedText(fullRole);
         setTimeout(() => {
           setIsFading(true);
           setTimeout(() => {
             if (onFinish) onFinish();
           }, 450);
-        }, 300);
+        }, 150);
       }
-    }, 180);
+    }, 35);
 
-    return () => clearInterval(interval);
+    return () => clearInterval(typingInterval);
   }, [onFinish]);
 
   return (
     <div className={`loading-screen ${isFading ? "fade-out" : ""}`}>
+      {/* Background Neon Orbs */}
+      <div className="loading-bg-glow loading-bg-glow-1"></div>
+      <div className="loading-bg-glow loading-bg-glow-2"></div>
+
       <div className="loading-card">
+        {/* Animated Avatar / Monogram with Glowing Ring */}
         <div className="loading-logo-wrap">
           <div className="loading-logo">
-            <span className="logo-text">RK</span>
+            <span className="logo-text">&lt;RK /&gt;</span>
             <span className="logo-dot"></span>
           </div>
         </div>
 
         <div className="loading-profile">
           <h2 className="loading-name">Ramesh K</h2>
-          <p className="loading-role">Java Full Stack Developer</p>
+          
+          {/* Dynamic 2-Sec Typewriter for 'Full Stack Developer' */}
+          <div className="loading-role-box">
+            <span className="terminal-prompt">&gt;</span>
+            <span className="loading-role text-gradient-role">
+              {typedText}
+            </span>
+            <span className="typing-cursor"></span>
+          </div>
         </div>
 
+        {/* 2-Second Smooth Progress Bar */}
         <div className="loading-bar-wrapper">
           <div className="loading-bar-fill" style={{ width: `${progress}%` }}></div>
         </div>
 
         <div className="loading-status">
-          <span className="status-text">{stepText}</span>
+          <span className="status-text">
+            {progress < 40
+              ? "Bootstrapping Environment..."
+              : progress < 85
+              ? "Loading Interactive Modules..."
+              : "Ready."}
+          </span>
           <span className="status-num">{progress}%</span>
         </div>
       </div>

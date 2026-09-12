@@ -4,6 +4,7 @@ import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
 import { VideoModal } from "./components/VideoModal";
 import { VoiceChatbot } from "./components/VoiceChatbot";
+import { LoadingScreen } from "./components/LoadingScreen";
 import { HomePage } from "./pages/HomePage";
 import { SkillsPage } from "./pages/SkillsPage";
 import { ProjectsPage } from "./pages/ProjectsPage";
@@ -24,10 +25,12 @@ function ScrollToTop() {
 
 export function App() {
   const [introModalOpen, setIntroModalOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   return (
     <Router>
       <ScrollToTop />
+      {isLoading && <LoadingScreen onFinish={() => setIsLoading(false)} />}
       <div className="relative min-h-screen bg-[#050505] text-slate-100 selection:bg-cyan-500/35 selection:text-white flex flex-col justify-between">
         
         {/* Atmospheric Colorful Background Image Layers */}
