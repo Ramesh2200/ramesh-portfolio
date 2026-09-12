@@ -4,6 +4,7 @@ import { Menu, X, Download, Code2 } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 import { profile } from "../data/profile";
 import { downloadResume } from "../utils/downloadResume";
+import { IconicRLogo } from "./IconicRLogo";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -95,9 +96,7 @@ export function Navbar() {
           onClick={(e) => handleNavClick(e, { id: "hero", path: "/" })}
           className="group flex items-center gap-2.5 font-bold tracking-tight text-white transition-colors"
         >
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-cyan-500 to-indigo-600 flex items-center justify-center shadow-[0_0_20px_rgba(6,182,212,0.4)] group-hover:scale-105 transition-transform">
-            <Code2 className="w-5 h-5 text-white" />
-          </div>
+          <IconicRLogo size={38} className="group-hover:scale-105 transition-transform" />
           <div className="flex flex-col">
             <span className="text-lg font-extrabold tracking-wide font-mono-code flex items-center gap-1.5 text-white">
               Ramesh

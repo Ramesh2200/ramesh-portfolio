@@ -56,7 +56,7 @@ export function LoadingScreen({ onFinish }) {
         <div className="monogram-outer-frame">
           <div className="monogram-inner-box">
             <span className="monogram-initials">
-              RK<span className="monogram-red-dot">.</span>
+              R<span className="monogram-red-dot">.</span>
             </span>
           </div>
         </div>

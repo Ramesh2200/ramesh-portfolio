@@ -2,6 +2,7 @@ import React from "react";
 import { ArrowUp, Mail, Heart, Code2 } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "./SocialIcons";
 import { profile } from "../data/profile";
+import { IconicRLogo } from "./IconicRLogo";
 
 export function Footer() {
   const scrollToTop = () => {
@@ -15,9 +16,7 @@ export function Footer() {
           
           {/* Brand & Tagline */}
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-500 to-indigo-600 flex items-center justify-center text-white shadow-[0_0_15px_rgba(6,182,212,0.3)]">
-              <Code2 className="w-4 h-4" />
-            </div>
+            <IconicRLogo size={36} />
             <div>
               <p className="text-white font-bold text-sm tracking-wide font-mono-code">
                 Ramesh K <span className="text-cyan-400">Portfolio</span>
