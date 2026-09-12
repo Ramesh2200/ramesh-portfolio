@@ -24,14 +24,17 @@ export const projects = [
     githubUrl: "https://github.com/Ramesh2200/smart-parking-system",
     logo: "/assets/smart-parking-logo.svg",
     logoMark: "/assets/smart-parking-mark.svg",
-    poster: "/assets/smart-parking-hero.jpg",
-    fullExplanationImg: "/assets/smart-parking-hero.jpg",
+    poster: "/assets/smart-parking-8k-hd.jpg",
+    fullExplanationImg: "/assets/smart-parking-8k-hd.jpg",
+    previewImage: "/assets/smart-parking-8k-hd.jpg",
+    dashboardImage: "/assets/smart-parking-dashboard.jpg",
+    is8kHd: true,
     gradient: "linear-gradient(135deg, rgba(0, 242, 254, 0.15) 0%, rgba(16, 185, 129, 0.05) 100%)",
     accentColor: "#00f2fe",
     metrics: [
+      { label: "Visual Fidelity", value: "8K Ultra HD" },
       { label: "Bays Telemetry", value: "32 Monitored" },
-      { label: "Gate Clearance", value: "< 2s Optical QR" },
-      { label: "Architecture", value: "Java EE & React" }
+      { label: "Gate Clearance", value: "< 2s Optical QR" }
     ]
   },
   {

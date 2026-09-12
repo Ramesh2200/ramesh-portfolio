@@ -26,6 +26,7 @@ export function Projects() {
   const [enlargedMedia, setEnlargedMedia] = useState(null);
   const [activeVideoPlays, setActiveVideoPlays] = useState({});
   const [mediaModes, setMediaModes] = useState({
+    "smart-parking-system": "8k-hd",
     "ecommerce-website": "video",
     "food-order-delivery": "video"
   });
@@ -66,24 +67,42 @@ export function Projects() {
         {/* Featured Projects Cards Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch mb-12">
           {projects.map((project, index) => {
+            const isSmartParking = project.id === "smart-parking-system";
+            const isEcommerce = project.id === "ecommerce-website";
+            const isFeastFlow = project.id === "food-order-delivery";
+
+            const currentMediaMode = mediaModes[project.id] || (isSmartParking ? "8k-hd" : "video");
+
             const previewImage =
-              project.id === "ecommerce-website"
+              isSmartParking
+                ? currentMediaMode === "dashboard"
+                  ? "/assets/smart-parking-dashboard.jpg"
+                  : "/assets/smart-parking-8k-hd.jpg"
+                : isEcommerce
                 ? "/assets/ecommerce-demo-showcase-16x9.jpg"
                 : "/assets/food-delivery-preview.jpg";
 
             const rawShowcaseImage =
-              project.id === "ecommerce-website"
+              isSmartParking
+                ? currentMediaMode === "dashboard"
+                  ? "/assets/smart-parking-dashboard.jpg"
+                  : "/assets/smart-parking-8k-hd.jpg"
+                : isEcommerce
                 ? "/assets/ecommerce-demo-showcase.png"
                 : previewImage;
 
             const videoSrc =
-              project.id === "ecommerce-website"
+              isEcommerce
                 ? "/videos/ecommerce-demo.mp4"
-                : "/videos/food-delivery-demo.mp4";
+                : isFeastFlow
+                ? "/videos/food-delivery-demo.mp4"
+                : null;
 
-            const currentMediaMode = mediaModes[project.id] || "video";
-            const isFeastFlow = project.id === "food-order-delivery";
-            const projectBadge = isFeastFlow ? "FeastFlow Food Delivery" : "E-Commerce Enterprise";
+            const projectBadge = isSmartParking
+              ? "Smart Parking System • 8K HD"
+              : isFeastFlow
+              ? "FeastFlow Food Delivery"
+              : "E-Commerce Enterprise";
 
             return (
               <motion.div
@@ -106,38 +125,74 @@ export function Projects() {
                       </span>
                     </div>
 
-                    {/* Video / Screenshot Switcher + Full View */}
+                    {/* Media Switcher Tabs */}
                     <div className="flex items-center gap-1.5 bg-white/[0.05] p-1 rounded-xl border border-white/10">
-                      <button
-                        onClick={() => toggleMediaMode(project.id, "video")}
-                        className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-mono-code transition-all ${
-                          currentMediaMode === "video"
-                            ? "bg-cyan-500/20 text-cyan-300 border border-cyan-500/30"
-                            : "text-slate-400 hover:text-white"
-                        }`}
-                      >
-                        <Film className="w-3.5 h-3.5" />
-                        <span>Video Demo</span>
-                      </button>
+                      {isSmartParking ? (
+                        <>
+                          <button
+                            onClick={() => toggleMediaMode(project.id, "8k-hd")}
+                            className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-mono-code transition-all ${
+                              currentMediaMode === "8k-hd"
+                                ? "bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 shadow-[0_0_12px_rgba(6,182,212,0.3)]"
+                                : "text-slate-400 hover:text-white"
+                            }`}
+                          >
+                            <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+                            <span>8K HD Facility</span>
+                          </button>
 
-                      <button
-                        onClick={() => toggleMediaMode(project.id, "image")}
-                        className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-mono-code transition-all ${
-                          currentMediaMode === "image"
-                            ? "bg-cyan-500/20 text-cyan-300 border border-cyan-500/30"
-                            : "text-slate-400 hover:text-white"
-                        }`}
-                      >
-                        <Image className="w-3.5 h-3.5" />
-                        <span>Preview</span>
-                      </button>
+                          <button
+                            onClick={() => toggleMediaMode(project.id, "dashboard")}
+                            className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-mono-code transition-all ${
+                              currentMediaMode === "dashboard"
+                                ? "bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 shadow-[0_0_12px_rgba(6,182,212,0.3)]"
+                                : "text-slate-400 hover:text-white"
+                            }`}
+                          >
+                            <Layers className="w-3.5 h-3.5 text-cyan-400" />
+                            <span>Dashboard UI</span>
+                          </button>
+                        </>
+                      ) : (
+                        <>
+                          <button
+                            onClick={() => toggleMediaMode(project.id, "video")}
+                            className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-mono-code transition-all ${
+                              currentMediaMode === "video"
+                                ? "bg-cyan-500/20 text-cyan-300 border border-cyan-500/30"
+                                : "text-slate-400 hover:text-white"
+                            }`}
+                          >
+                            <Film className="w-3.5 h-3.5" />
+                            <span>Video Demo</span>
+                          </button>
+
+                          <button
+                            onClick={() => toggleMediaMode(project.id, "image")}
+                            className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-mono-code transition-all ${
+                              currentMediaMode === "image"
+                                ? "bg-cyan-500/20 text-cyan-300 border border-cyan-500/30"
+                                : "text-slate-400 hover:text-white"
+                            }`}
+                          >
+                            <Image className="w-3.5 h-3.5" />
+                            <span>Preview</span>
+                          </button>
+                        </>
+                      )}
 
                       <button
                         onClick={() =>
                           setEnlargedMedia({
-                            type: currentMediaMode,
-                            url: currentMediaMode === "video" ? project.youtubeEmbedUrl : rawShowcaseImage,
-                            title: project.title
+                            type: isSmartParking ? "image" : currentMediaMode,
+                            url: isSmartParking
+                              ? rawShowcaseImage
+                              : currentMediaMode === "video"
+                              ? project.youtubeEmbedUrl
+                              : rawShowcaseImage,
+                            title: isSmartParking
+                              ? `${project.title} — ${currentMediaMode === "dashboard" ? "Live Dashboard UI" : "8K Ultra HD Visualization"}`
+                              : project.title
                           })
                         }
                         className="p-1 rounded-lg text-slate-400 hover:text-cyan-300 hover:bg-white/10 transition-colors"
@@ -222,11 +277,13 @@ export function Projects() {
                           setEnlargedMedia({
                             type: "image",
                             url: rawShowcaseImage,
-                            title: project.title
+                            title: isSmartParking
+                              ? `${project.title} (${currentMediaMode === "dashboard" ? "Live Dashboard UI" : "8K Ultra HD Resolution"})`
+                              : project.title
                           })
                         }
                         className="relative w-full h-full group/img cursor-pointer bg-slate-950 flex items-center justify-center overflow-hidden"
-                        title="Click to view full width & breadth"
+                        title={isSmartParking ? "Click to view in 8K Ultra HD" : "Click to view full width & breadth"}
                       >
                         <img
                           src={previewImage}
@@ -236,8 +293,18 @@ export function Projects() {
                         <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent opacity-60 pointer-events-none"></div>
                         <div className="absolute bottom-3 right-3 px-2.5 py-1 rounded-lg bg-black/80 backdrop-blur-md border border-cyan-500/30 text-cyan-300 text-[11px] font-mono-code opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center gap-1.5 shadow-lg pointer-events-none">
                           <Maximize2 className="w-3 h-3" />
-                          <span>Full Breadth View</span>
+                          <span>{isSmartParking ? "8K Ultra HD View" : "Full Breadth View"}</span>
                         </div>
+                      </div>
+                    )}
+
+                    {/* 8K Ultra HD Indicator Badge */}
+                    {isSmartParking && (
+                      <div className="absolute top-3 left-3 pointer-events-none z-10">
+                        <span className="px-2.5 py-1 rounded-full bg-[#050505]/90 backdrop-blur-md text-cyan-300 font-mono-code text-[11px] font-bold border border-cyan-400/50 flex items-center gap-1.5 shadow-[0_0_15px_rgba(6,182,212,0.4)]">
+                          <Sparkles className="w-3.5 h-3.5 text-cyan-400 animate-pulse" />
+                          <span>8K ULTRA HD</span>
+                        </span>
                       </div>
                     )}
 
