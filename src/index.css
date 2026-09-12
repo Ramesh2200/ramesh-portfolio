@@ -293,9 +293,13 @@ html.light .font-script-calligraphy {
   color: #1e293b;
 }
 
-/* Background image blending in light mode */
+/* Background image blending on main page shown light 70% */
 html.light [style*="colorful-tech-bg.jpg"],
 html.light [style*="vibrant-mesh-bg.jpg"] {
   mix-blend-mode: multiply !important;
-  opacity: 0.15 !important;
+  opacity: 0.70 !important;
+}
+
+[style*="colorful-tech-bg.jpg"] {
+  opacity: 0.70 !important;
 }

@@ -44,16 +44,22 @@ export function App() {
         
         {/* Atmospheric Colorful Background Image Layers */}
         <div className="fixed inset-0 pointer-events-none -z-10 overflow-hidden" aria-hidden="true">
-          {/* Colorful Futuristic Tech Image Layer */}
+          {/* Colorful Futuristic Tech Image Layer (Shown Light 70%) */}
           <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-35 mix-blend-screen dark:opacity-40 transition-opacity duration-700"
-            style={{ backgroundImage: "url('/assets/colorful-tech-bg.jpg')" }}
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-700 pointer-events-none"
+            style={{
+              backgroundImage: "url('/assets/colorful-tech-bg.jpg')",
+              opacity: 0.70
+            }}
           ></div>
 
           {/* Secondary Vibrant Liquid Color Mesh Layer */}
           <div
-            className="absolute inset-0 bg-cover bg-bottom bg-no-repeat opacity-20 mix-blend-color-dodge pointer-events-none"
-            style={{ backgroundImage: "url('/assets/vibrant-mesh-bg.jpg')" }}
+            className="absolute inset-0 bg-cover bg-bottom bg-no-repeat transition-opacity duration-700 pointer-events-none"
+            style={{
+              backgroundImage: "url('/assets/vibrant-mesh-bg.jpg')",
+              opacity: 0.35
+            }}
           ></div>
 
           {/* Multi-Color Neon Glowing Ambient Orbs */}
