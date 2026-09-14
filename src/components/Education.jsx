@@ -150,7 +150,7 @@ export function Education() {
               <div className="p-4 rounded-2xl bg-gradient-to-br from-cyan-500/20 to-indigo-500/20 border border-cyan-500/40 shadow-[0_0_25px_rgba(6,182,212,0.25)] text-center">
                 <span className="text-[10px] uppercase font-mono-code text-slate-400 block">Grade Point Average</span>
                 <span className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-indigo-300 font-mono-code">
-                  8.3 / 10.0
+                  7.9 / 10.0
                 </span>
               </div>
             </div>

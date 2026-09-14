@@ -4,7 +4,7 @@ export const education = [
     location: "Moodabidre, Karnataka, India",
     degree: "B.E. in Computer Science & Engineering",
     period: "2022 – 2026",
-    score: "CGPA: 8.3/10",
+    score: "CGPA: 7.9/10",
     scoreLabel: "Grade Point Average",
     highlight: "Computer Science & Engineering Core Foundations, Data Structures & Software Engineering"
   },

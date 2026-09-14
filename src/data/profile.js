@@ -15,14 +15,16 @@ export const profile = {
   usn: "4DM22CS080",
   certificateNo: "PDC0005527",
   headshot: "/ramesh_profile.jpg",
+  selfIntroPoster: "/assets/ramesh-self-intro-hd.jpg",
+  selfIntroImage: "/assets/ramesh-self-intro-hd.jpg",
   introVideo: "/videos/self-introduction.mp4",
   college: "Yenepoya Institute of Technology",
   university: "Visvesvaraya Technological University (VTU)",
-  cgpa: "8.3 CGPA",
+  cgpa: "7.9 CGPA",
   degree: "B.E. in Computer Science & Engineering",
   graduationYear: "2026",
   summary:
-    "Passionate Java Full Stack Developer and 2026 Computer Science graduate from Yenepoya Institute of Technology (8.3 CGPA). 6 months of professional training experience at Tap Academy building scalable web architectures, REST APIs, and responsive UIs with Spring Boot, Hibernate, React.js, and MySQL.",
+    "Passionate Java Full Stack Developer and 2026 Computer Science graduate from Yenepoya Institute of Technology (7.9 CGPA). 6 months of professional training experience at Tap Academy building scalable web architectures, REST APIs, and responsive UIs with Spring Boot, Hibernate, React.js, and MySQL.",
   statusText: "AVAILABLE FOR IMMEDIATE OPPORTUNITIES",
   heroHeading: "Engineering Resilient Full-Stack Architectures.",
   heroSubtitle:

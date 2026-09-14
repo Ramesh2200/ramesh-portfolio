@@ -209,11 +209,11 @@ export function VoiceChatbot() {
     }
 
     if (q.includes("certificate") || q.includes("degree certificate")) {
-      return "Ramesh holds an official Bachelor of Engineering in Computer Science & Engineering degree certificate from Yenepoya Institute of Technology (VTU) with First Class Distinction and an 8.3 CGPA. You can view and download his Degree Certificate PDF directly in the Education section.";
+      return "Ramesh holds an official Bachelor of Engineering in Computer Science & Engineering degree certificate from Yenepoya Institute of Technology (VTU) with First Class Distinction and a 7.9 CGPA. You can view and download his Degree Certificate PDF directly in the Education section.";
     }
 
     if (q.includes("cgpa") || q.includes("education") || q.includes("college") || q.includes("yenepoya") || q.includes("degree")) {
-      return "Ramesh is a 2026 Computer Science & Engineering graduate from Yenepoya Institute of Technology with an 8.3 CGPA (First Class with Distinction). His degree certificate is available for direct PDF download in the Education section.";
+      return "Ramesh is a 2026 Computer Science & Engineering graduate from Yenepoya Institute of Technology with a 7.9 CGPA (First Class with Distinction). His degree certificate is available for direct PDF download in the Education section.";
     }
 
     if (q.includes("skill") || q.includes("tech") || q.includes("stack") || q.includes("language") || q.includes("backend")) {
@@ -233,10 +233,10 @@ export function VoiceChatbot() {
     }
 
     if (q.includes("who are you") || q.includes("introduce") || q.includes("about") || q.includes("ramesh")) {
-      return "Ramesh K is a Java Full Stack & Python Developer and 2026 Computer Science graduate from Yenepoya Institute of Technology (8.3 CGPA). He has 6 months of hands-on full-stack development experience building scalable web architectures.";
+      return "Ramesh K is a Java Full Stack & Python Developer and 2026 Computer Science graduate from Yenepoya Institute of Technology (7.9 CGPA). He has 6 months of hands-on full-stack development experience building scalable web architectures.";
     }
 
-    return "Ramesh K is a Java & Python Full Stack Developer with an 8.3 CGPA from Yenepoya Institute of Technology. Feel free to ask about his projects (E-Commerce & FeastFlow), skills (Spring Boot, React, Django, MySQL), or contact details!";
+    return "Ramesh K is a Java & Python Full Stack Developer with a 7.9 CGPA from Yenepoya Institute of Technology. Feel free to ask about his projects (E-Commerce & FeastFlow), skills (Spring Boot, React, Django, MySQL), or contact details!";
   };
 
   const handleUserQuery = (userText) => {

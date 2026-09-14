@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { X, ExternalLink, PlayCircle, FileDown, Mail } from "lucide-react";
+import { X, ExternalLink, PlayCircle, FileDown, Mail, Image, Film, Sparkles, Maximize2 } from "lucide-react";
 import { profile } from "../data/profile";
 import { downloadResume } from "../utils/downloadResume";
 import "./VideoModal.css";
@@ -23,12 +23,17 @@ export function VideoModal({ videoData, project, isOpen, onClose }) {
   const [videoError, setVideoError] = useState(false);
   const data = videoData || project;
   const [currentSrc, setCurrentSrc] = useState(data?.videoFile || "");
+  const [activeMode, setActiveMode] = useState("infographic");
+
+  const isIntro = data?.type === "intro";
+  const posterImg = data?.infographic || data?.poster || "/assets/ramesh-self-intro-hd.jpg";
 
   useEffect(() => {
     setVideoError(false);
     if (data?.videoFile) {
       setCurrentSrc(data.videoFile);
     }
+    setActiveMode(isIntro ? "infographic" : "video");
 
     const handleKeyDown = (e) => {
       if (e.key === "Escape") onClose();
@@ -45,7 +50,7 @@ export function VideoModal({ videoData, project, isOpen, onClose }) {
       document.body.style.overflow = "unset";
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [isOpen, data, onClose]);
+  }, [isOpen, data, onClose, isIntro]);
 
   const handleVideoError = (e) => {
     console.warn("Video failed to play:", currentSrc, e);
@@ -59,12 +64,11 @@ export function VideoModal({ videoData, project, isOpen, onClose }) {
 
   if (!isOpen || !data) return null;
 
-  const isIntro = data.type === "intro";
   const embedUrl = getEmbedUrl(currentSrc);
 
   return (
     <div className="video-modal-backdrop" onClick={onClose} role="dialog" aria-modal="true">
-      <div className="video-modal-content" onClick={(e) => e.stopPropagation()}>
+      <div className="video-modal-content" style={{ maxWidth: "980px" }} onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
           <div className="modal-title-wrap">
             <div className="modal-project-badge">
@@ -74,20 +78,64 @@ export function VideoModal({ videoData, project, isOpen, onClose }) {
               {isIntro ? "Ramesh K — Self Introduction" : `${data.title} — Demonstration`}
             </h3>
           </div>
-          <button className="modal-close-btn" onClick={onClose} aria-label="Close modal">
-            <X size={20} />
-          </button>
+
+          <div className="flex items-center gap-2">
+            {/* Tab Switcher for Presentation vs Video */}
+            <div className="flex items-center gap-1 bg-white/[0.06] p-1 rounded-xl border border-white/10">
+              <button
+                onClick={() => setActiveMode("infographic")}
+                className={`flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-mono-code transition-all ${
+                  activeMode === "infographic"
+                    ? "bg-cyan-500/30 text-cyan-300 border border-cyan-500/40 shadow-[0_0_12px_rgba(6,182,212,0.3)] font-semibold"
+                    : "text-slate-400 hover:text-white"
+                }`}
+              >
+                <Image size={13} />
+                <span>Poster Demo</span>
+              </button>
+
+              <button
+                onClick={() => setActiveMode("video")}
+                className={`flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-mono-code transition-all ${
+                  activeMode === "video"
+                    ? "bg-cyan-500/30 text-cyan-300 border border-cyan-500/40 shadow-[0_0_12px_rgba(6,182,212,0.3)] font-semibold"
+                    : "text-slate-400 hover:text-white"
+                }`}
+              >
+                <Film size={13} />
+                <span>Video Walkthrough</span>
+              </button>
+            </div>
+
+            <button className="modal-close-btn" onClick={onClose} aria-label="Close modal">
+              <X size={20} />
+            </button>
+          </div>
         </div>
 
-        <div className="modal-body">
-          {!videoError ? (
+        <div className="modal-body" style={{ minHeight: "420px", background: "#060911" }}>
+          {activeMode === "infographic" ? (
+            <div className="relative w-full h-full flex items-center justify-center p-2 bg-[#05070d]">
+              <img
+                src={posterImg}
+                alt={data.title || "Self Introduction"}
+                className="w-full h-auto max-h-[75vh] object-contain rounded-xl shadow-2xl"
+              />
+              <div className="absolute bottom-4 right-4 pointer-events-none">
+                <span className="px-3 py-1 rounded-lg bg-black/80 backdrop-blur-md border border-cyan-500/40 text-cyan-300 text-xs font-mono-code flex items-center gap-1.5 shadow-lg">
+                  <Sparkles size={13} />
+                  <span>Full Presentation View</span>
+                </span>
+              </div>
+            </div>
+          ) : !videoError ? (
             <div className="video-player-container">
               {embedUrl ? (
                 <iframe
                   src={embedUrl}
                   title={data.title || "Video Demonstration"}
                   className="modal-video-element"
-                  style={{ border: 0, width: "100%", height: "100%", minHeight: "380px" }}
+                  style={{ border: 0, width: "100%", height: "100%", minHeight: "420px" }}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
                 />
@@ -96,7 +144,7 @@ export function VideoModal({ videoData, project, isOpen, onClose }) {
                   controls
                   autoPlay
                   playsInline
-                  poster={data.poster}
+                  poster={posterImg}
                   className="modal-video-element"
                   key={currentSrc}
                   src={currentSrc}
@@ -107,27 +155,15 @@ export function VideoModal({ videoData, project, isOpen, onClose }) {
               )}
             </div>
           ) : (
-            <div className="video-placeholder-container">
-              <div className="placeholder-icon-wrap">
-                <PlayCircle size={48} className="placeholder-play-icon" />
-              </div>
-              <h4 className="placeholder-heading">Demo Video In Queue</h4>
-              <p className="placeholder-message">
-                Project demonstration video will be added soon.
+            <div className="relative w-full h-full flex flex-col items-center justify-center p-4 bg-[#05070d]">
+              <img
+                src={posterImg}
+                alt={data.title || "Project Demo"}
+                className="w-full h-auto max-h-[65vh] object-contain rounded-xl shadow-xl mb-3"
+              />
+              <p className="text-xs text-slate-400 font-mono-code">
+                Displaying official presentation demo poster.
               </p>
-              {data.liveUrl && (
-                <div className="placeholder-actions">
-                  <a
-                    href={data.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn btn-primary"
-                  >
-                    <span>Open Live Project</span>
-                    <ExternalLink size={16} />
-                  </a>
-                </div>
-              )}
             </div>
           )}
         </div>

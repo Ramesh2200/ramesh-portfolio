@@ -104,7 +104,8 @@ export function App() {
             type: "intro",
             title: "Ramesh K — Self Introduction",
             videoFile: profile.introVideo,
-            poster: profile.headshot
+            poster: profile.selfIntroPoster || "/assets/ramesh-self-intro-hd.jpg",
+            infographic: profile.selfIntroPoster || "/assets/ramesh-self-intro-hd.jpg"
           }}
         />
 

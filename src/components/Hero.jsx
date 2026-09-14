@@ -135,7 +135,7 @@ export function Hero({ onWatchIntro }) {
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
             </span>
             <span className="text-xs font-mono-code font-semibold text-slate-800 dark:text-cyan-300 tracking-wide uppercase">
-              2026 CS Graduate • 8.3 CGPA • Available for Immediate Joining
+              2026 CS Graduate • 7.9 CGPA • Available for Immediate Joining
             </span>
           </div>
         </motion.div>
@@ -175,7 +175,7 @@ export function Hero({ onWatchIntro }) {
             <p className="text-base sm:text-lg text-slate-200 max-w-2xl mx-auto lg:mx-0 mb-6 leading-relaxed font-normal">
               Computer Science graduate from{" "}
               <span className="font-semibold text-cyan-300 underline decoration-cyan-400/40 underline-offset-4">
-                Yenepoya Institute of Technology (8.3 CGPA)
+                Yenepoya Institute of Technology (7.9 CGPA)
               </span>{" "}
               with{" "}
               <span className="font-semibold text-indigo-300">
@@ -217,18 +217,23 @@ export function Hero({ onWatchIntro }) {
                   <ArrowRight className="w-3 h-3" />
                 </Link>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
                 {projects.slice(0, 3).map((p) => (
                   <Link
                     key={p.id}
                     to="/projects"
-                    className="p-2 rounded-xl bg-white/90 dark:bg-white/[0.04] hover:bg-cyan-500/10 border border-slate-200/60 dark:border-white/5 hover:border-cyan-500/30 transition-all text-left group"
+                    className="p-2 rounded-xl bg-white/90 dark:bg-white/[0.04] hover:bg-cyan-500/10 border border-slate-200/60 dark:border-white/5 hover:border-cyan-500/30 transition-all text-left group flex items-center gap-2.5"
                   >
-                    <div className="text-[11px] font-bold text-white truncate group-hover:text-cyan-300">
-                      {p.title}
+                    <div className="w-9 h-9 rounded-lg overflow-hidden shrink-0 border border-slate-300 dark:border-white/10 bg-slate-900 shadow-xs">
+                      <img src={p.previewImage || p.poster} alt={p.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
                     </div>
-                    <div className="text-[9px] text-slate-400 font-mono-code truncate mt-0.5">
-                      {p.stack.slice(0, 3).join(" • ")}
+                    <div className="min-w-0">
+                      <div className="text-[11px] font-bold text-white truncate group-hover:text-cyan-300">
+                        {p.title}
+                      </div>
+                      <div className="text-[9px] text-slate-400 font-mono-code truncate mt-0.5">
+                        {p.stack.slice(0, 3).join(" • ")}
+                      </div>
                     </div>
                   </Link>
                 ))}
@@ -402,7 +407,7 @@ export function Hero({ onWatchIntro }) {
                         YIT 2026 Batch
                       </span>
                       <span className="text-xs font-bold text-emerald-400 font-mono-code">
-                        8.3 CGPA
+                        7.9 CGPA
                       </span>
                     </div>
                   </div>
@@ -470,7 +475,7 @@ export function Hero({ onWatchIntro }) {
 
           <div className="text-center sm:text-left sm:border-r border-slate-200 dark:border-white/10 sm:px-4">
             <p className="text-2xl sm:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-fuchsia-300 font-mono-code">
-              8.3 CGPA
+              7.9 CGPA
             </p>
             <p className="text-xs text-slate-600 dark:text-slate-400 mt-1 uppercase font-semibold tracking-wider">
               B.E. CSE (YIT)

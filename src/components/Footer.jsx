@@ -73,7 +73,7 @@ export function Footer() {
             © {new Date().getFullYear()} Ramesh K. Built with React.js, Tailwind CSS & Framer Motion.
           </p>
           <p className="flex items-center gap-1.5">
-            <span>Yenepoya Institute of Technology (8.3 CGPA)</span>
+            <span>Yenepoya Institute of Technology (7.9 CGPA)</span>
           </p>
         </div>
       </div>

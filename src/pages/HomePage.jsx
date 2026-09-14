@@ -18,7 +18,7 @@ export function HomePage({ onWatchIntro }) {
       {/* 3. Featured Projects (Embedded video demo player, Vercel links, schema inspector) */}
       <Projects />
 
-      {/* 4. Education (8.3 CGPA from Yenepoya Institute of Technology + timeline) */}
+      {/* 4. Education (7.9 CGPA from Yenepoya Institute of Technology + timeline) */}
       <Education />
 
       {/* 5. Experience (Tap Academy 6-month Full Stack Developer role) */}

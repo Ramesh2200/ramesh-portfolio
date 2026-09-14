@@ -105,7 +105,7 @@ def create_certificate(pdf_path, png_path):
 
     c.setFont("Helvetica-Bold", 12)
     c.setFillColor(colors.HexColor("#059669"))
-    c.drawCentredString(w / 2, h - 382, "Cumulative Grade Point Average (CGPA): 8.3 / 10.0")
+    c.drawCentredString(w / 2, h - 382, "Cumulative Grade Point Average (CGPA): 7.9 / 10.0")
 
     # Class of 2026
     c.setFont("Times-Roman", 11)

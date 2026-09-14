@@ -108,7 +108,7 @@ export function About({ onWatchIntro }) {
                     Yenepoya Institute of Technology
                   </span>
                   <span className="px-2.5 py-1 rounded-full bg-cyan-500/20 text-cyan-300 font-mono-code text-xs font-bold border border-cyan-500/30">
-                    8.3 CGPA
+                    7.9 CGPA
                   </span>
                 </div>
                 <p className="text-xs text-slate-400 font-mono-code flex items-center gap-1.5 mb-3">
@@ -123,7 +123,7 @@ export function About({ onWatchIntro }) {
               <div className="space-y-2.5 mb-6">
                 <div className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-300">
                   <CheckCircle2 className="w-4 h-4 text-cyan-400 mt-0.5 shrink-0" />
-                  <span>Graduating in 2026 with consistent academic distinction (8.3 CGPA).</span>
+                  <span>Graduating in 2026 with consistent academic distinction (7.9 CGPA).</span>
                 </div>
                 <div className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-300">
                   <CheckCircle2 className="w-4 h-4 text-cyan-400 mt-0.5 shrink-0" />
@@ -174,7 +174,7 @@ export function About({ onWatchIntro }) {
   "education": {
     "degree": "B.E. Computer Science & Engineering",
     "institution": "Yenepoya Institute of Technology",
-    "cgpa": "8.3 / 10.0",
+    "cgpa": "7.9 / 10.0",
     "year": "2022 - 2026"
   },
   "coreExpertise": [

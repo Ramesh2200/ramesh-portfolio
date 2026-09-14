@@ -74,22 +74,14 @@ export function Projects() {
             const currentMediaMode = mediaModes[project.id] || (isSmartParking ? "8k-hd" : "video");
 
             const previewImage =
-              isSmartParking
-                ? currentMediaMode === "dashboard"
-                  ? "/assets/smart-parking-dashboard.jpg"
-                  : "/assets/smart-parking-8k-hd.jpg"
-                : isEcommerce
-                ? "/assets/ecommerce-demo-showcase-16x9.jpg"
-                : "/assets/food-delivery-preview.jpg";
+              isSmartParking && currentMediaMode === "dashboard"
+                ? project.dashboardImage || "/assets/smart-parking-dashboard.jpg"
+                : project.previewImage || project.poster;
 
             const rawShowcaseImage =
-              isSmartParking
-                ? currentMediaMode === "dashboard"
-                  ? "/assets/smart-parking-dashboard.jpg"
-                  : "/assets/smart-parking-8k-hd.jpg"
-                : isEcommerce
-                ? "/assets/ecommerce-demo-showcase.png"
-                : previewImage;
+              isSmartParking && currentMediaMode === "dashboard"
+                ? project.dashboardImage || "/assets/smart-parking-dashboard.jpg"
+                : project.fullExplanationImg || project.previewImage || project.poster;
 
             const videoSrc =
               isEcommerce
