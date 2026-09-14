@@ -1,25 +1,14 @@
 /**
- * Reliable resume handler:
- * 1. Opens the interactive in-page Resume Modal immediately so the user sees the PDF on-screen.
- * 2. Fetches the PDF blob and triggers a clean, unblocked file download to disk.
+ * Reliable resume download handler:
+ * Fetches the PDF blob and triggers a clean, direct file download to disk.
+ * Does NOT open any unnecessary preview or modal.
  */
 export function downloadResume(e, filename = "Ramesh_K_Resume.pdf", path = "/Ramesh_K_Resume.pdf") {
   if (e && e.preventDefault) {
     e.preventDefault();
   }
 
-  // 1. Immediately open the on-screen Resume Modal viewer
-  try {
-    window.dispatchEvent(
-      new CustomEvent("open-resume-modal", {
-        detail: { filename, path }
-      })
-    );
-  } catch (err) {
-    console.warn("Event dispatch error:", err);
-  }
-
-  // 2. Fetch blob and trigger direct download
+  // Pure direct download only - no modal or preview
   try {
     fetch(path)
       .then((res) => {

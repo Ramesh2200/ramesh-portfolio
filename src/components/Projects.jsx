@@ -3,15 +3,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   ExternalLink,
   Play,
-  Pause,
   Film,
-  Image,
   Database,
-  Server,
   Layers,
   Sparkles,
   CheckCircle,
-  ArrowRight,
   ShieldCheck,
   Boxes,
   X,
@@ -25,18 +21,6 @@ export function Projects() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [enlargedMedia, setEnlargedMedia] = useState(null);
   const [activeVideoPlays, setActiveVideoPlays] = useState({});
-  const [mediaModes, setMediaModes] = useState({
-    "smart-parking-system": "8k-hd",
-    "ecommerce-website": "video",
-    "food-order-delivery": "video"
-  });
-
-  const toggleMediaMode = (projectId, mode) => {
-    setMediaModes((prev) => ({
-      ...prev,
-      [projectId]: mode
-    }));
-  };
 
   return (
     <section id="projects" className="py-24 relative overflow-hidden">
@@ -67,34 +51,10 @@ export function Projects() {
         {/* Featured Projects Cards Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch mb-12">
           {projects.map((project, index) => {
-            const isSmartParking = project.id === "smart-parking-system";
             const isEcommerce = project.id === "ecommerce-website";
             const isFeastFlow = project.id === "food-order-delivery";
-
-            const currentMediaMode = mediaModes[project.id] || (isSmartParking ? "8k-hd" : "video");
-
-            const previewImage =
-              isSmartParking && currentMediaMode === "dashboard"
-                ? project.dashboardImage || "/assets/smart-parking-dashboard.jpg"
-                : project.previewImage || project.poster;
-
-            const rawShowcaseImage =
-              isSmartParking && currentMediaMode === "dashboard"
-                ? project.dashboardImage || "/assets/smart-parking-dashboard.jpg"
-                : project.fullExplanationImg || project.previewImage || project.poster;
-
-            const videoSrc =
-              isEcommerce
-                ? "/videos/ecommerce-demo.mp4"
-                : isFeastFlow
-                ? "/videos/food-delivery-demo.mp4"
-                : null;
-
-            const projectBadge = isSmartParking
-              ? "Smart Parking System • 8K HD"
-              : isFeastFlow
-              ? "FeastFlow Food Delivery"
-              : "E-Commerce Enterprise";
+            const posterImage = project.poster || project.previewImage;
+            const videoSrc = project.videoFile || (isEcommerce ? "/videos/ecommerce-demo.mp4" : isFeastFlow ? "/videos/food-delivery-demo.mp4" : null);
 
             return (
               <motion.div
@@ -106,197 +66,155 @@ export function Projects() {
                 className="glass-card rounded-3xl overflow-hidden flex flex-col justify-between border border-white/10 hover:border-cyan-500/40 group relative shadow-2xl"
               >
                 <div>
-                  {/* Top Bar with Media Switcher Tabs & Full Size Trigger */}
+                  {/* Top Bar with Demo Video Badge & Enlarge Action */}
                   <div className="px-5 py-3.5 bg-[#03060d] border-b border-white/10 flex items-center justify-between">
                     <div className="flex items-center gap-2">
                       <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80"></span>
                       <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span>
                       <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span>
-                      <span className="ml-2 text-xs font-mono-code text-slate-400 font-medium truncate max-w-[140px] sm:max-w-none">
+                      <span className="ml-2 text-xs font-mono-code text-slate-400 font-medium truncate max-w-[160px] sm:max-w-none">
                         {project.title}
                       </span>
                     </div>
 
-                    {/* Media Switcher Tabs */}
-                    <div className="flex items-center gap-1.5 bg-white/[0.05] p-1 rounded-xl border border-white/10">
-                      {isSmartParking ? (
-                        <>
-                          <button
-                            onClick={() => toggleMediaMode(project.id, "8k-hd")}
-                            className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-mono-code transition-all ${
-                              currentMediaMode === "8k-hd"
-                                ? "bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 shadow-[0_0_12px_rgba(6,182,212,0.3)]"
-                                : "text-slate-400 hover:text-white"
-                            }`}
-                          >
-                            <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
-                            <span>8K HD Facility</span>
-                          </button>
-
-                          <button
-                            onClick={() => toggleMediaMode(project.id, "dashboard")}
-                            className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-mono-code transition-all ${
-                              currentMediaMode === "dashboard"
-                                ? "bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 shadow-[0_0_12px_rgba(6,182,212,0.3)]"
-                                : "text-slate-400 hover:text-white"
-                            }`}
-                          >
-                            <Layers className="w-3.5 h-3.5 text-cyan-400" />
-                            <span>Dashboard UI</span>
-                          </button>
-                        </>
-                      ) : (
-                        <>
-                          <button
-                            onClick={() => toggleMediaMode(project.id, "video")}
-                            className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-mono-code transition-all ${
-                              currentMediaMode === "video"
-                                ? "bg-cyan-500/20 text-cyan-300 border border-cyan-500/30"
-                                : "text-slate-400 hover:text-white"
-                            }`}
-                          >
-                            <Film className="w-3.5 h-3.5" />
-                            <span>Video Demo</span>
-                          </button>
-
-                          <button
-                            onClick={() => toggleMediaMode(project.id, "image")}
-                            className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-mono-code transition-all ${
-                              currentMediaMode === "image"
-                                ? "bg-cyan-500/20 text-cyan-300 border border-cyan-500/30"
-                                : "text-slate-400 hover:text-white"
-                            }`}
-                          >
-                            <Image className="w-3.5 h-3.5" />
-                            <span>Preview</span>
-                          </button>
-                        </>
-                      )}
+                    {/* Demo Video Indicator & Enlarge Action */}
+                    <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-1.5 px-3 py-1 rounded-xl bg-cyan-500/10 border border-cyan-500/25 text-cyan-300 text-xs font-mono-code">
+                        <Film className="w-3.5 h-3.5 text-cyan-400" />
+                        <span>Demo Video</span>
+                      </div>
 
                       <button
                         onClick={() =>
                           setEnlargedMedia({
-                            type: isSmartParking ? "image" : currentMediaMode,
-                            url: isSmartParking
-                              ? rawShowcaseImage
-                              : currentMediaMode === "video"
-                              ? project.youtubeEmbedUrl
-                              : rawShowcaseImage,
-                            title: isSmartParking
-                              ? `${project.title} — ${currentMediaMode === "dashboard" ? "Live Dashboard UI" : "8K Ultra HD Visualization"}`
-                              : project.title
+                            type: "video",
+                            url: project.youtubeEmbedUrl || videoSrc,
+                            title: `${project.title} Demo Video`
                           })
                         }
-                        className="p-1 rounded-lg text-slate-400 hover:text-cyan-300 hover:bg-white/10 transition-colors"
-                        title="Enlarge (Full Width & Breadth)"
-                        aria-label="Enlarge Media"
+                        className="p-1.5 rounded-xl bg-white/[0.05] border border-white/10 text-slate-400 hover:text-cyan-300 hover:bg-white/10 transition-colors"
+                        title="Enlarge Video (Full Screen)"
+                        aria-label="Enlarge Video"
                       >
                         <Maximize2 className="w-3.5 h-3.5" />
                       </button>
                     </div>
                   </div>
 
-                  {/* Multimedia Preview Container with Exact 16:9 Widescreen Aspect & Background Cover */}
+                  {/* Demo Video Player Container with 16:9 Widescreen Aspect & Background Poster */}
                   <div
                     className="relative aspect-[16/9] w-full overflow-hidden bg-[#000000] bg-cover bg-center"
-                    style={{ backgroundImage: `url(${previewImage})` }}
+                    style={{ backgroundImage: `url(${posterImage})` }}
                   >
-                    {currentMediaMode === "video" ? (
-                      project.youtubeEmbedUrl ? (
-                        !activeVideoPlays[project.id] ? (
-                          <div
-                            onClick={() =>
-                              setActiveVideoPlays((prev) => ({ ...prev, [project.id]: true }))
-                            }
-                            className="relative w-full h-full cursor-pointer group/videocover flex items-center justify-center overflow-hidden"
-                            title="Click to play video demo"
-                          >
-                            <img
-                              src={previewImage}
-                              alt={`${project.title} Video Demo Background`}
-                              className="absolute inset-0 w-full h-full object-cover object-center group-hover/videocover:scale-105 transition-transform duration-700 pointer-events-none"
-                            />
-                            <div className="absolute inset-0 bg-black/35 group-hover/videocover:bg-black/20 transition-colors backdrop-blur-[0.5px] pointer-events-none"></div>
-
-                            {/* Centered Glowing Play Action - Exactly in the middle */}
-                            <div className="relative z-10 flex flex-col items-center justify-center gap-3">
-                              <div className="w-16 h-16 rounded-full bg-cyan-500/25 border-2 border-cyan-400 flex items-center justify-center text-cyan-300 shadow-[0_0_35px_rgba(6,182,212,0.7)] group-hover/videocover:scale-110 group-hover/videocover:bg-cyan-500 group-hover/videocover:text-black group-hover/videocover:border-white transition-all">
-                                <Play className="w-7 h-7 fill-current ml-1" />
-                              </div>
-                              <span className="px-4 py-1.5 rounded-full bg-black/85 backdrop-blur-md border border-cyan-500/50 text-cyan-300 text-xs font-mono-code font-bold tracking-wide shadow-2xl flex items-center gap-2">
-                                <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-                                Play Video Demo
-                              </span>
-                            </div>
-                          </div>
-                        ) : (
-                          <div className="relative w-full h-full">
-                            <iframe
-                              src={`${project.youtubeEmbedUrl}&autoplay=1`}
-                              title={`${project.title} Video Walkthrough`}
-                              className="w-full h-full border-0"
-                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                              allowFullScreen
-                            />
-                            <button
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                setActiveVideoPlays((prev) => ({ ...prev, [project.id]: false }));
-                              }}
-                              className="absolute top-3 left-3 z-20 px-2.5 py-1 rounded-lg bg-black/80 hover:bg-black/95 backdrop-blur-md border border-white/20 hover:border-cyan-400 text-slate-300 hover:text-cyan-300 text-[11px] font-mono-code flex items-center gap-1.5 transition-all shadow-lg"
-                              title="Show background cover"
-                            >
-                              <RotateCcw className="w-3 h-3" />
-                              <span>Cover View</span>
-                            </button>
-                          </div>
-                        )
-                      ) : (
-                        <video
-                          src={videoSrc}
-                          poster={previewImage}
-                          controls
-                          playsInline
-                          preload="metadata"
-                          className="w-full h-full object-cover"
+                    {project.youtubeEmbedUrl ? (
+                      !activeVideoPlays[project.id] ? (
+                        <div
+                          onClick={() =>
+                            setActiveVideoPlays((prev) => ({ ...prev, [project.id]: true }))
+                          }
+                          className="relative w-full h-full cursor-pointer group/videocover flex items-center justify-center overflow-hidden"
+                          title="Click to play demo video"
                         >
-                          Your browser does not support HTML5 video.
-                        </video>
+                          <img
+                            src={posterImage}
+                            alt={`${project.title} Demo Video Background`}
+                            className="absolute inset-0 w-full h-full object-cover object-center group-hover/videocover:scale-105 transition-transform duration-700 pointer-events-none"
+                          />
+                          <div className="absolute inset-0 bg-black/35 group-hover/videocover:bg-black/20 transition-colors backdrop-blur-[0.5px] pointer-events-none"></div>
+
+                          {/* Centered Glowing Play Action */}
+                          <div className="relative z-10 flex flex-col items-center justify-center gap-3">
+                            <div className="w-16 h-16 rounded-full bg-cyan-500/25 border-2 border-cyan-400 flex items-center justify-center text-cyan-300 shadow-[0_0_35px_rgba(6,182,212,0.7)] group-hover/videocover:scale-110 group-hover/videocover:bg-cyan-500 group-hover/videocover:text-black group-hover/videocover:border-white transition-all">
+                              <Play className="w-7 h-7 fill-current ml-1" />
+                            </div>
+                            <span className="px-4 py-1.5 rounded-full bg-black/85 backdrop-blur-md border border-cyan-500/50 text-cyan-300 text-xs font-mono-code font-bold tracking-wide shadow-2xl flex items-center gap-2">
+                              <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                              Play Demo Video
+                            </span>
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="relative w-full h-full">
+                          <iframe
+                            src={`${project.youtubeEmbedUrl}&autoplay=1`}
+                            title={`${project.title} Video Walkthrough`}
+                            className="w-full h-full border-0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowFullScreen
+                          />
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setActiveVideoPlays((prev) => ({ ...prev, [project.id]: false }));
+                            }}
+                            className="absolute top-3 left-3 z-20 px-2.5 py-1 rounded-lg bg-black/80 hover:bg-black/95 backdrop-blur-md border border-white/20 hover:border-cyan-400 text-slate-300 hover:text-cyan-300 text-[11px] font-mono-code flex items-center gap-1.5 transition-all shadow-lg"
+                            title="Show cover image"
+                          >
+                            <RotateCcw className="w-3 h-3" />
+                            <span>Show Cover</span>
+                          </button>
+                        </div>
+                      )
+                    ) : videoSrc ? (
+                      !activeVideoPlays[project.id] ? (
+                        <div
+                          onClick={() =>
+                            setActiveVideoPlays((prev) => ({ ...prev, [project.id]: true }))
+                          }
+                          className="relative w-full h-full cursor-pointer group/videocover flex items-center justify-center overflow-hidden"
+                          title="Click to play demo video"
+                        >
+                          <img
+                            src={posterImage}
+                            alt={`${project.title} Demo Video Background`}
+                            className="absolute inset-0 w-full h-full object-cover object-center group-hover/videocover:scale-105 transition-transform duration-700 pointer-events-none"
+                          />
+                          <div className="absolute inset-0 bg-black/35 group-hover/videocover:bg-black/20 transition-colors backdrop-blur-[0.5px] pointer-events-none"></div>
+
+                          {/* Centered Glowing Play Action */}
+                          <div className="relative z-10 flex flex-col items-center justify-center gap-3">
+                            <div className="w-16 h-16 rounded-full bg-cyan-500/25 border-2 border-cyan-400 flex items-center justify-center text-cyan-300 shadow-[0_0_35px_rgba(6,182,212,0.7)] group-hover/videocover:scale-110 group-hover/videocover:bg-cyan-500 group-hover/videocover:text-black group-hover/videocover:border-white transition-all">
+                              <Play className="w-7 h-7 fill-current ml-1" />
+                            </div>
+                            <span className="px-4 py-1.5 rounded-full bg-black/85 backdrop-blur-md border border-cyan-500/50 text-cyan-300 text-xs font-mono-code font-bold tracking-wide shadow-2xl flex items-center gap-2">
+                              <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                              Play Demo Video
+                            </span>
+                          </div>
+                        </div>
+                      ) : (
+                        <div className="relative w-full h-full">
+                          <video
+                            src={videoSrc}
+                            poster={posterImage}
+                            controls
+                            autoPlay
+                            playsInline
+                            preload="metadata"
+                            className="w-full h-full object-cover"
+                          >
+                            Your browser does not support HTML5 video.
+                          </video>
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setActiveVideoPlays((prev) => ({ ...prev, [project.id]: false }));
+                            }}
+                            className="absolute top-3 left-3 z-20 px-2.5 py-1 rounded-lg bg-black/80 hover:bg-black/95 backdrop-blur-md border border-white/20 hover:border-cyan-400 text-slate-300 hover:text-cyan-300 text-[11px] font-mono-code flex items-center gap-1.5 transition-all shadow-lg"
+                            title="Show cover image"
+                          >
+                            <RotateCcw className="w-3 h-3" />
+                            <span>Show Cover</span>
+                          </button>
+                        </div>
                       )
                     ) : (
-                      <div
-                        onClick={() =>
-                          setEnlargedMedia({
-                            type: "image",
-                            url: rawShowcaseImage,
-                            title: isSmartParking
-                              ? `${project.title} (${currentMediaMode === "dashboard" ? "Live Dashboard UI" : "8K Ultra HD Resolution"})`
-                              : project.title
-                          })
-                        }
-                        className="relative w-full h-full group/img cursor-pointer bg-slate-950 flex items-center justify-center overflow-hidden"
-                        title={isSmartParking ? "Click to view in 8K Ultra HD" : "Click to view full width & breadth"}
-                      >
+                      <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
                         <img
-                          src={previewImage}
+                          src={posterImage}
                           alt={project.title}
-                          className="w-full h-full object-cover object-center group-hover/img:scale-105 transition-transform duration-500"
+                          className="w-full h-full object-cover object-center"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent opacity-60 pointer-events-none"></div>
-                        <div className="absolute bottom-3 right-3 px-2.5 py-1 rounded-lg bg-black/80 backdrop-blur-md border border-cyan-500/30 text-cyan-300 text-[11px] font-mono-code opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center gap-1.5 shadow-lg pointer-events-none">
-                          <Maximize2 className="w-3 h-3" />
-                          <span>{isSmartParking ? "8K Ultra HD View" : "Full Breadth View"}</span>
-                        </div>
-                      </div>
-                    )}
-
-                    {/* 8K Ultra HD Indicator Badge */}
-                    {isSmartParking && (
-                      <div className="absolute top-3 left-3 pointer-events-none z-10">
-                        <span className="px-2.5 py-1 rounded-full bg-[#050505]/90 backdrop-blur-md text-cyan-300 font-mono-code text-[11px] font-bold border border-cyan-400/50 flex items-center gap-1.5 shadow-[0_0_15px_rgba(6,182,212,0.4)]">
-                          <Sparkles className="w-3.5 h-3.5 text-cyan-400 animate-pulse" />
-                          <span>8K ULTRA HD</span>
-                        </span>
                       </div>
                     )}
 
@@ -508,7 +426,7 @@ export function Projects() {
         )}
       </AnimatePresence>
 
-      {/* Full Width & Breadth Showcase Lightbox Modal */}
+      {/* Demo Video Lightbox Modal */}
       <AnimatePresence>
         {enlargedMedia && (
           <div
@@ -524,40 +442,42 @@ export function Projects() {
             >
               <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-[#03060d]">
                 <div className="flex items-center gap-2.5">
-                  <span className="w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse"></span>
+                  <Film className="w-4 h-4 text-cyan-400" />
                   <h3 className="text-white font-bold text-sm font-mono-code">
-                    {enlargedMedia.title} — {enlargedMedia.type === "video" ? "Video Walkthrough" : "Full Breadth Showcase"}
+                    {enlargedMedia.title}
                   </h3>
                 </div>
                 <button
                   onClick={() => setEnlargedMedia(null)}
                   className="p-1.5 rounded-xl bg-white/5 border border-white/10 text-slate-400 hover:text-white hover:border-cyan-500/30 transition-colors"
-                  aria-label="Close Preview"
+                  aria-label="Close Demo Video"
                 >
                   <X className="w-4 h-4" />
                 </button>
               </div>
 
               <div className="p-4 sm:p-6 flex items-center justify-center bg-black/80">
-                {enlargedMedia.type === "video" ? (
-                  <div className="w-full aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+                <div className="w-full aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+                  {enlargedMedia.url && enlargedMedia.url.includes("youtube") ? (
                     <iframe
-                      src={enlargedMedia.url}
+                      src={`${enlargedMedia.url}&autoplay=1`}
                       title={enlargedMedia.title}
                       className="w-full h-full border-0"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                       allowFullScreen
                     />
-                  </div>
-                ) : (
-                  <div className="max-h-[78vh] overflow-auto flex items-center justify-center w-full">
-                    <img
+                  ) : (
+                    <video
                       src={enlargedMedia.url}
-                      alt={enlargedMedia.title}
-                      className="max-h-[75vh] w-auto max-w-full rounded-2xl shadow-2xl object-contain border border-white/10"
-                    />
-                  </div>
-                )}
+                      controls
+                      autoPlay
+                      playsInline
+                      className="w-full h-full object-cover"
+                    >
+                      Your browser does not support HTML5 video.
+                    </video>
+                  )}
+                </div>
               </div>
             </motion.div>
           </div>

@@ -260,18 +260,6 @@ export function Hero({ onWatchIntro }) {
                 <span>Download Resume</span>
               </a>
 
-              <a
-                href={profile.resumePath}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={(e) => downloadResume(e, "Ramesh_K_Resume.pdf", profile.resumePath)}
-                className="flex items-center gap-2 px-4 py-3.5 rounded-xl bg-white/60 dark:bg-white/[0.03] hover:bg-white/80 border border-slate-200 dark:border-white/10 text-slate-200 hover:text-white text-xs font-mono-code transition-all cursor-pointer"
-                title="Preview Resume in Modal"
-              >
-                <FileText className="w-3.5 h-3.5 text-cyan-400" />
-                <span>Open Resume</span>
-              </a>
-
               {onWatchIntro && (
                 <button
                   onClick={onWatchIntro}

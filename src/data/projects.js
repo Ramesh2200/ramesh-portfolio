@@ -27,12 +27,11 @@ export const projects = [
     poster: "/assets/smart-parking-demo-hd.jpg",
     fullExplanationImg: "/assets/smart-parking-demo-hd.jpg",
     previewImage: "/assets/smart-parking-demo-hd.jpg",
-    dashboardImage: "/assets/smart-parking-demo-hd.jpg",
-    is8kHd: true,
+    videoFile: "/videos/ecommerce-demo.mp4",
     gradient: "linear-gradient(135deg, rgba(0, 242, 254, 0.15) 0%, rgba(16, 185, 129, 0.05) 100%)",
     accentColor: "#00f2fe",
     metrics: [
-      { label: "Visual Fidelity", value: "8K Ultra HD" },
+      { label: "Architecture", value: "Java EE & React" },
       { label: "Bays Telemetry", value: "32 Monitored" },
       { label: "Gate Clearance", value: "< 2s Optical QR" }
     ]
