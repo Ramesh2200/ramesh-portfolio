@@ -114,12 +114,12 @@ export function Hero({ onWatchIntro }) {
           transition={{ duration: 0.6 }}
           className="flex justify-center lg:justify-start mb-6"
         >
-          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/80 dark:bg-[#0c121e]/85 border border-cyan-500/30 shadow-[0_4px_20px_rgba(6,182,212,0.15)] backdrop-blur-xl">
+          <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-[#0c121e]/90 border border-cyan-500/40 shadow-[0_4px_25px_rgba(6,182,212,0.25)] backdrop-blur-xl">
             <span className="flex h-2.5 w-2.5 relative">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
             </span>
-            <span className="text-xs font-mono-code font-semibold text-slate-800 dark:text-cyan-300 tracking-wide uppercase">
+            <span className="text-xs font-mono-code font-bold text-cyan-300 tracking-wide uppercase">
               2026 CS Graduate • 7.9 CGPA • Available for Immediate Joining
             </span>
           </div>
@@ -136,7 +136,7 @@ export function Hero({ onWatchIntro }) {
             className="lg:col-span-7 text-center lg:text-left order-2 lg:order-1"
           >
             {/* Name with Modern Gradient Accent */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white mb-3 leading-[1.12]">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white mb-4 leading-[1.12] drop-shadow-lg">
               Hello, I'm{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-400">
                 Ramesh K
@@ -145,13 +145,13 @@ export function Hero({ onWatchIntro }) {
 
             {/* Dynamic Typewriter Professional Title */}
             <div className="h-12 sm:h-14 flex items-center justify-center lg:justify-start mb-5">
-              <div className="inline-flex items-center px-3.5 py-1.5 rounded-xl bg-white/70 dark:bg-white/[0.04] border border-cyan-500/30 backdrop-blur-md shadow-sm">
-                <Terminal className="w-4 h-4 text-cyan-500 dark:text-cyan-400 mr-2" />
+              <div className="inline-flex items-center px-4 py-2 rounded-xl bg-[#090e1a]/85 border border-cyan-500/40 backdrop-blur-xl shadow-[0_0_20px_rgba(6,182,212,0.2)]">
+                <Terminal className="w-4 h-4 text-cyan-400 mr-2.5" />
                 <span className="text-xl sm:text-2xl lg:text-3xl font-bold font-mono-code text-white flex items-center">
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 via-indigo-600 to-fuchsia-600 dark:from-cyan-400 dark:via-fuchsia-400 dark:to-amber-300">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-fuchsia-400 to-amber-300">
                     {displayText}
                   </span>
-                  <span className="inline-block w-2 sm:w-2.5 h-6 sm:h-7 ml-1.5 bg-cyan-500 dark:bg-cyan-400 align-middle animate-pulse"></span>
+                  <span className="inline-block w-2 sm:w-2.5 h-6 sm:h-7 ml-2 bg-cyan-400 align-middle animate-pulse"></span>
                 </span>
               </div>
             </div>
@@ -188,10 +188,10 @@ export function Hero({ onWatchIntro }) {
             </div>
 
             {/* Featured Projects Quick Showcase */}
-            <div className="mb-8 p-3 rounded-2xl bg-white/75 dark:bg-white/[0.03] border border-slate-200/80 dark:border-white/10 backdrop-blur-xl shadow-sm">
+            <div className="mb-8 p-3.5 rounded-2xl bg-[#090e1a]/85 border border-cyan-500/30 backdrop-blur-xl shadow-lg">
               <div className="flex items-center justify-between gap-2 mb-2 px-1">
-                <span className="text-xs font-mono-code font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
-                  <Layers className="w-3.5 h-3.5 text-indigo-400" />
+                <span className="text-xs font-mono-code font-bold uppercase tracking-wider text-cyan-300 flex items-center gap-1.5">
+                  <Layers className="w-3.5 h-3.5 text-cyan-400" />
                   <span>Featured Production Projects</span>
                 </span>
                 <Link
@@ -207,9 +207,9 @@ export function Hero({ onWatchIntro }) {
                   <Link
                     key={p.id}
                     to="/projects"
-                    className="p-2 rounded-xl bg-white/90 dark:bg-white/[0.04] hover:bg-cyan-500/10 border border-slate-200/60 dark:border-white/5 hover:border-cyan-500/30 transition-all text-left group flex items-center gap-2.5"
+                    className="p-2 rounded-xl bg-[#0c1322]/80 hover:bg-cyan-500/15 border border-white/10 hover:border-cyan-500/40 transition-all text-left group flex items-center gap-2.5"
                   >
-                    <div className="w-9 h-9 rounded-lg overflow-hidden shrink-0 border border-slate-300 dark:border-white/10 bg-slate-900 shadow-xs">
+                    <div className="w-9 h-9 rounded-lg overflow-hidden shrink-0 border border-cyan-500/30 bg-slate-900 shadow-xs">
                       <img src={p.previewImage || p.poster} alt={p.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
                     </div>
                     <div className="min-w-0">
@@ -239,7 +239,7 @@ export function Hero({ onWatchIntro }) {
                 href={profile.resumePath}
                 download="Ramesh_K_Resume.pdf"
                 onClick={(e) => downloadResume(e, "Ramesh_K_Resume.pdf", profile.resumePath)}
-                className="flex items-center gap-2 px-5 py-3.5 rounded-xl bg-white/90 dark:bg-white/[0.06] hover:bg-white border border-slate-300 dark:border-cyan-500/30 hover:border-cyan-500 text-white font-medium text-sm backdrop-blur-xl transition-all hover:scale-105 active:scale-95 shadow-sm cursor-pointer"
+                className="flex items-center gap-2 px-5 py-3.5 rounded-xl bg-[#0e1626]/90 hover:bg-[#142036] border border-cyan-500/35 hover:border-cyan-400 text-white font-medium text-sm backdrop-blur-xl transition-all hover:scale-105 active:scale-95 shadow-lg cursor-pointer"
               >
                 <Download className="w-4 h-4 text-cyan-400" />
                 <span>Download Resume</span>
@@ -248,7 +248,7 @@ export function Hero({ onWatchIntro }) {
               {onWatchIntro && (
                 <button
                   onClick={onWatchIntro}
-                  className="flex items-center gap-2 px-4 py-3 rounded-xl bg-white/60 dark:bg-white/[0.03] hover:bg-white/80 border border-slate-200 dark:border-white/10 text-slate-200 hover:text-white text-xs font-mono-code transition-all"
+                  className="flex items-center gap-2 px-4 py-3 rounded-xl bg-[#090e1a]/80 hover:bg-[#0f172a] border border-white/10 hover:border-cyan-500/30 text-slate-200 hover:text-white text-xs font-mono-code transition-all"
                 >
                   <Play className="w-3.5 h-3.5 text-cyan-400 fill-cyan-400" />
                   <span>Watch Intro</span>
@@ -257,9 +257,9 @@ export function Hero({ onWatchIntro }) {
             </div>
 
             {/* Direct Contact Info Strip & Social Links */}
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4 border-t border-slate-200/80 dark:border-white/10 text-xs">
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4 border-t border-white/10 text-xs">
               {/* Email Chip */}
-              <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/70 dark:bg-white/[0.04] border border-slate-200/60 dark:border-white/10 backdrop-blur-md">
+              <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#090e1a]/85 border border-white/10 backdrop-blur-md">
                 <Mail className="w-3.5 h-3.5 text-cyan-400" />
                 <a
                   href={`mailto:${profile.email}`}
@@ -277,7 +277,7 @@ export function Hero({ onWatchIntro }) {
               </div>
 
               {/* Phone Chip */}
-              <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/70 dark:bg-white/[0.04] border border-slate-200/60 dark:border-white/10 backdrop-blur-md">
+              <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#090e1a]/85 border border-white/10 backdrop-blur-md">
                 <Phone className="w-3.5 h-3.5 text-indigo-400" />
                 <a
                   href={`tel:${profile.phone.replace(/\s+/g, "")}`}
@@ -307,7 +307,7 @@ export function Hero({ onWatchIntro }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="GitHub Profile"
-                  className="p-2 rounded-xl bg-white/70 dark:bg-white/[0.04] border border-slate-200 dark:border-white/10 text-slate-300 hover:text-white hover:border-cyan-500/40 hover:bg-cyan-500/10 transition-all hover:scale-110 shadow-xs"
+                  className="p-2 rounded-xl bg-[#090e1a]/85 border border-white/10 text-slate-300 hover:text-white hover:border-cyan-500/40 hover:bg-cyan-500/10 transition-all hover:scale-110 shadow-xs"
                 >
                   <GithubIcon className="w-4 h-4" />
                 </a>
@@ -317,7 +317,7 @@ export function Hero({ onWatchIntro }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LinkedIn Profile"
-                  className="p-2 rounded-xl bg-white/70 dark:bg-white/[0.04] border border-slate-200 dark:border-white/10 text-slate-300 hover:text-white hover:border-indigo-500/40 hover:bg-indigo-500/10 transition-all hover:scale-110 shadow-xs"
+                  className="p-2 rounded-xl bg-[#090e1a]/85 border border-white/10 text-slate-300 hover:text-white hover:border-indigo-500/40 hover:bg-indigo-500/10 transition-all hover:scale-110 shadow-xs"
                 >
                   <LinkedinIcon className="w-4 h-4" />
                 </a>
@@ -342,10 +342,10 @@ export function Hero({ onWatchIntro }) {
               <div className="absolute -inset-1.5 rounded-[2.2rem] bg-gradient-to-r from-cyan-500 via-indigo-500 to-fuchsia-500 opacity-70 blur-lg group-hover:opacity-95 transition-opacity duration-500"></div>
 
               {/* Main Rounded Frame with Soft Shadow & Realistic Visual Fidelity */}
-              <div className="relative rounded-[2rem] overflow-hidden bg-white/90 dark:bg-[#0a0f1d] border-2 border-white/80 dark:border-white/20 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.25)] backdrop-blur-2xl p-2.5 transition-transform duration-500 group-hover:scale-[1.01]">
+              <div className="relative rounded-[2rem] overflow-hidden bg-[#0a0f1d] border-2 border-cyan-500/40 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8)] backdrop-blur-2xl p-2.5 transition-transform duration-500 group-hover:scale-[1.01]">
                 
                 {/* Photo Container with rounded corners */}
-                <div className="relative w-full aspect-square rounded-[1.6rem] overflow-hidden bg-slate-100 dark:bg-slate-900 shadow-inner">
+                <div className="relative w-full aspect-square rounded-[1.6rem] overflow-hidden bg-slate-900 shadow-inner">
                   <img
                     src="/ramesh-profile.jpg"
                     alt="Ramesh K - Java Full Stack Developer & 2026 CS Graduate"
@@ -392,16 +392,16 @@ export function Hero({ onWatchIntro }) {
               <motion.div
                 animate={{ y: [-6, 6, -6] }}
                 transition={{ repeat: Infinity, duration: 4.5, ease: "easeInOut" }}
-                className="absolute -top-4 -left-4 sm:-left-6 px-3.5 py-2 rounded-2xl bg-white/90 dark:bg-[#0c1220]/95 backdrop-blur-xl border border-cyan-500/40 shadow-[0_10px_30px_rgba(6,182,212,0.25)] flex items-center gap-2.5 z-20"
+                className="absolute -top-4 -left-4 sm:-left-6 px-3.5 py-2 rounded-2xl bg-[#0c1220]/95 backdrop-blur-xl border border-cyan-500/40 shadow-[0_10px_30px_rgba(6,182,212,0.25)] flex items-center gap-2.5 z-20"
               >
-                <div className="w-8 h-8 rounded-xl bg-cyan-500/20 flex items-center justify-center text-cyan-600 dark:text-cyan-400">
+                <div className="w-8 h-8 rounded-xl bg-cyan-500/20 flex items-center justify-center text-cyan-400">
                   <Server className="w-4 h-4" />
                 </div>
                 <div>
-                  <span className="text-xs font-mono-code font-bold text-slate-900 dark:text-white block">
+                  <span className="text-xs font-mono-code font-bold text-white block">
                     Enterprise Java
                   </span>
-                  <span className="text-[10px] text-cyan-600 dark:text-cyan-400 font-mono-code">
+                  <span className="text-[10px] text-cyan-400 font-mono-code">
                     Spring Boot & MVC
                   </span>
                 </div>
@@ -410,16 +410,16 @@ export function Hero({ onWatchIntro }) {
               <motion.div
                 animate={{ y: [6, -6, 6] }}
                 transition={{ repeat: Infinity, duration: 5.2, ease: "easeInOut", delay: 0.5 }}
-                className="absolute -bottom-4 -left-3 sm:-left-5 px-3.5 py-2 rounded-2xl bg-white/90 dark:bg-[#0c1220]/95 backdrop-blur-xl border border-indigo-500/40 shadow-[0_10px_30px_rgba(99,102,241,0.25)] flex items-center gap-2.5 z-20"
+                className="absolute -bottom-4 -left-3 sm:-left-5 px-3.5 py-2 rounded-2xl bg-[#0c1220]/95 backdrop-blur-xl border border-indigo-500/40 shadow-[0_10px_30px_rgba(99,102,241,0.25)] flex items-center gap-2.5 z-20"
               >
-                <div className="w-8 h-8 rounded-xl bg-indigo-500/20 flex items-center justify-center text-indigo-600 dark:text-indigo-400">
+                <div className="w-8 h-8 rounded-xl bg-indigo-500/20 flex items-center justify-center text-indigo-400">
                   <Briefcase className="w-4 h-4" />
                 </div>
                 <div>
-                  <span className="text-xs font-mono-code font-bold text-slate-900 dark:text-white block">
+                  <span className="text-xs font-mono-code font-bold text-white block">
                     Tap Academy Dev
                   </span>
-                  <span className="text-[10px] text-indigo-600 dark:text-indigo-400 font-mono-code">
+                  <span className="text-[10px] text-indigo-400 font-mono-code">
                     6 Months Training
                   </span>
                 </div>
@@ -435,40 +435,40 @@ export function Hero({ onWatchIntro }) {
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-4 p-5 sm:p-6 rounded-3xl bg-white/80 dark:bg-white/[0.03] border border-slate-200/80 dark:border-white/10 backdrop-blur-2xl shadow-lg"
+          className="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-4 p-5 sm:p-6 rounded-3xl bg-[#090e1a]/85 border border-cyan-500/25 backdrop-blur-2xl shadow-xl"
         >
-          <div className="text-center sm:text-left sm:border-r border-slate-200 dark:border-white/10 sm:pr-4">
-            <p className="text-2xl sm:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-sky-600 dark:from-cyan-400 dark:to-sky-300 font-mono-code">
+          <div className="text-center sm:text-left sm:border-r border-white/10 sm:pr-4">
+            <p className="text-2xl sm:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-sky-300 font-mono-code">
               6+ Months
             </p>
-            <p className="text-xs text-slate-600 dark:text-slate-400 mt-1 uppercase font-semibold tracking-wider">
+            <p className="text-xs text-slate-400 mt-1 uppercase font-semibold tracking-wider">
               Tap Academy Dev
             </p>
           </div>
 
-          <div className="text-center sm:text-left sm:border-r border-slate-200 dark:border-white/10 sm:px-4">
-            <p className="text-2xl sm:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-fuchsia-300 font-mono-code">
+          <div className="text-center sm:text-left sm:border-r border-white/10 sm:px-4">
+            <p className="text-2xl sm:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-fuchsia-300 font-mono-code">
               7.9 CGPA
             </p>
-            <p className="text-xs text-slate-600 dark:text-slate-400 mt-1 uppercase font-semibold tracking-wider">
+            <p className="text-xs text-slate-400 mt-1 uppercase font-semibold tracking-wider">
               B.E. CSE (YIT)
             </p>
           </div>
 
-          <div className="text-center sm:text-left sm:border-r border-slate-200 dark:border-white/10 sm:px-4">
-            <p className="text-2xl sm:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-sky-600 to-cyan-600 dark:from-sky-400 dark:to-cyan-300 font-mono-code">
+          <div className="text-center sm:text-left sm:border-r border-white/10 sm:px-4">
+            <p className="text-2xl sm:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-cyan-300 font-mono-code">
               3+ Projects
             </p>
-            <p className="text-xs text-slate-600 dark:text-slate-400 mt-1 uppercase font-semibold tracking-wider">
+            <p className="text-xs text-slate-400 mt-1 uppercase font-semibold tracking-wider">
               Production Web Apps
             </p>
           </div>
 
           <div className="text-center sm:text-left sm:pl-4">
-            <p className="text-2xl sm:text-3xl font-black text-emerald-600 dark:text-emerald-400 font-mono-code">
+            <p className="text-2xl sm:text-3xl font-black text-emerald-400 font-mono-code">
               2026 Batch
             </p>
-            <p className="text-xs text-slate-600 dark:text-slate-400 mt-1 uppercase font-semibold tracking-wider">
+            <p className="text-xs text-slate-400 mt-1 uppercase font-semibold tracking-wider">
               Immediate Joiner
             </p>
           </div>
