@@ -74,14 +74,15 @@ export function App() {
             loop
             muted={isVideoMuted}
             playsInline
+            preload="auto"
             className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000"
             style={{
               opacity: 0.95,
-              filter: "brightness(0.76) contrast(1.12) saturate(1.15)"
+              filter: "brightness(0.78) contrast(1.10) saturate(1.15)"
             }}
           >
-            <source src="/videos/ramesh-video.mp4" type="video/mp4" />
             <source src="/ramesh-video.mp4" type="video/mp4" />
+            <source src="/videos/ramesh-video.mp4" type="video/mp4" />
           </video>
 
           {/* Fallback Static Image Layer */}

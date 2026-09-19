@@ -24,6 +24,10 @@ dist-ssr
 *.sw?
 .vercel
 .env*
-public/videos/
+public/videos/*
+!public/videos/ramesh-video.mp4
 *.mov
 *.mp4
+!public/ramesh-video.mp4
+!public/videos/ramesh-video.mp4
+
