@@ -67,7 +67,7 @@ export function About({ onWatchIntro }) {
             <span>ACADEMIC FOUNDATION & PHILOSOPHY</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Engineering Driven By <span className="text-gradient-cyan">Scalability & Passion</span>
+            Engineering Driven By <span className="text-gradient-cyan text-cyan-400">Scalability & Passion</span>
           </h2>
           <p className="mt-4 text-slate-400 text-base sm:text-lg leading-relaxed">
             Bridging robust backend engineering with responsive front-end design to deliver high-performance, real-world digital products.

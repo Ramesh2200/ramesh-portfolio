@@ -136,9 +136,9 @@ export function Hero({ onWatchIntro }) {
             className="lg:col-span-7 text-center lg:text-left order-2 lg:order-1"
           >
             {/* Name with Modern Gradient Accent */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white mb-4 leading-[1.12] drop-shadow-lg">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white mb-4 leading-[1.12]">
               Hello, I'm{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-400">
+              <span className="inline-block text-cyan-400 bg-gradient-to-r from-cyan-300 via-sky-200 to-indigo-300 bg-clip-text [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
                 Ramesh K
               </span>
             </h1>
@@ -148,7 +148,7 @@ export function Hero({ onWatchIntro }) {
               <div className="inline-flex items-center px-4 py-2 rounded-xl bg-[#090e1a]/85 border border-cyan-500/40 backdrop-blur-xl shadow-[0_0_20px_rgba(6,182,212,0.2)]">
                 <Terminal className="w-4 h-4 text-cyan-400 mr-2.5" />
                 <span className="text-xl sm:text-2xl lg:text-3xl font-bold font-mono-code text-white flex items-center">
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-fuchsia-400 to-amber-300">
+                  <span className="inline-block text-cyan-300 bg-gradient-to-r from-cyan-300 via-fuchsia-300 to-amber-300 bg-clip-text [-webkit-background-clip:text] [-webkit-text-fill-color:transparent]">
                     {displayText}
                   </span>
                   <span className="inline-block w-2 sm:w-2.5 h-6 sm:h-7 ml-2 bg-cyan-400 align-middle animate-pulse"></span>

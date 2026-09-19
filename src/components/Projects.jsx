@@ -40,8 +40,8 @@ export function Projects() {
             <Sparkles className="w-3.5 h-3.5" />
             <span>MULTIMEDIA PROJECT SHOWCASE</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Featured <span className="text-gradient-cyan">Full Stack Projects</span>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+            Featured <span className="text-gradient-cyan text-cyan-400">Full Stack Projects</span>
           </h2>
           <p className="mt-4 text-slate-400 text-base sm:text-lg leading-relaxed">
             Enterprise applications equipped with embedded video demonstrations, live Vercel deployments, and production database integrations.

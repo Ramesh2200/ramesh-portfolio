@@ -103,7 +103,7 @@ export function Education() {
             <span>ACADEMIC FOUNDATION & CREDENTIALS</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
-            Education & <span className="text-gradient-cyan">Degree Honors</span>
+            Education & <span className="text-gradient-cyan text-cyan-400">Degree Honors</span>
           </h2>
           <p className="mt-3 text-slate-400 text-sm sm:text-base leading-relaxed">
             Bachelor of Engineering in Computer Science & Engineering from Yenepoya Institute of Technology with official VTU degree certification.
@@ -149,7 +149,7 @@ export function Education() {
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
               <div className="p-4 rounded-2xl bg-gradient-to-br from-cyan-500/20 to-indigo-500/20 border border-cyan-500/40 shadow-[0_0_25px_rgba(6,182,212,0.25)] text-center">
                 <span className="text-[10px] uppercase font-mono-code text-slate-400 block">Grade Point Average</span>
-                <span className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-indigo-300 font-mono-code">
+                <span className="inline-block text-3xl font-black text-cyan-400 bg-clip-text bg-gradient-to-r from-cyan-400 to-indigo-300 font-mono-code [-webkit-text-fill-color:transparent]">
                   7.9 / 10.0
                 </span>
               </div>

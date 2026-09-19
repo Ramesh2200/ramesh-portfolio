@@ -87,7 +87,7 @@ export function Experience() {
             <span>PROFESSIONAL JOURNEY & TIMELINE</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Work Experience & <span className="text-gradient-cyan">Industry Journey</span>
+            Work Experience & <span className="text-gradient-cyan text-cyan-400">Industry Journey</span>
           </h2>
           <p className="mt-4 text-slate-400 text-base sm:text-lg leading-relaxed">
             Practical full-stack development experience from industry training alongside computer science academic achievements.

@@ -51,7 +51,7 @@ export function Skills() {
             <span>TECHNICAL SKILLS MATRIX</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
-            Technical Stack & <span className="text-gradient-cyan">Proficiencies</span>
+            Technical Stack & <span className="text-gradient-cyan text-cyan-400">Proficiencies</span>
           </h2>
           <p className="mt-3 text-slate-400 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
             Comprehensive production ecosystem featuring Core & Advanced Java, Python, Spring Boot, modern reactive frontends, and robust database architectures.

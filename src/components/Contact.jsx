@@ -150,7 +150,7 @@ export function Contact() {
             <span>GET IN TOUCH</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Let's Build Something <span className="text-gradient-cyan">Exceptional</span>
+            Let's Build Something <span className="text-gradient-cyan text-cyan-400">Exceptional</span>
           </h2>
           <p className="mt-4 text-slate-400 text-base sm:text-lg leading-relaxed">
             I am actively seeking Full-Time Java Full Stack Developer opportunities. Reach out via email, connect on professional networks, or drop a message below.
