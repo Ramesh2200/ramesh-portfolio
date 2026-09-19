@@ -23,7 +23,7 @@ export function VideoModal({ videoData, project, isOpen, onClose }) {
   const [videoError, setVideoError] = useState(false);
   const data = videoData || project;
   const [currentSrc, setCurrentSrc] = useState(data?.videoFile || "");
-  const [activeMode, setActiveMode] = useState("infographic");
+  const [activeMode, setActiveMode] = useState("video");
 
   const isIntro = data?.type === "intro";
   const posterImg = data?.infographic || data?.poster || "/assets/ramesh-self-intro-hd.jpg";
@@ -33,7 +33,7 @@ export function VideoModal({ videoData, project, isOpen, onClose }) {
     if (data?.videoFile) {
       setCurrentSrc(data.videoFile);
     }
-    setActiveMode(isIntro ? "infographic" : "video");
+    setActiveMode("video");
 
     const handleKeyDown = (e) => {
       if (e.key === "Escape") onClose();

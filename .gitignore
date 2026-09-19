@@ -26,8 +26,15 @@ dist-ssr
 .env*
 public/videos/*
 !public/videos/ramesh-video.mp4
+!public/videos/self-introduction.mp4
+!public/videos/ecommerce-demo.mp4
+!public/videos/smart-vehicle-demo.mp4
 *.mov
 *.mp4
 !public/ramesh-video.mp4
 !public/videos/ramesh-video.mp4
+!public/videos/self-introduction.mp4
+!public/videos/ecommerce-demo.mp4
+!public/videos/smart-vehicle-demo.mp4
+
 

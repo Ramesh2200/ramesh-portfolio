@@ -32,6 +32,7 @@ export function App() {
   const [isVideoPlaying, setIsVideoPlaying] = useState(true);
   const [isVideoMuted, setIsVideoMuted] = useState(true);
   const [videoOpacity, setVideoOpacity] = useState(0.95);
+  const [bgVideoSrc, setBgVideoSrc] = useState("/ramesh-video.mp4");
   const videoRef = useRef(null);
 
   const toggleVideoPlay = () => {
@@ -85,9 +86,11 @@ export function App() {
           {/* Main Background Video */}
           <video
             ref={videoRef}
+            key={bgVideoSrc}
+            src={bgVideoSrc}
             autoPlay
             loop
-            muted
+            muted={isVideoMuted}
             playsInline
             preload="auto"
             className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
@@ -96,9 +99,8 @@ export function App() {
               filter: "brightness(1.05) contrast(1.05)"
             }}
           >
+            <source src={bgVideoSrc} type="video/mp4" />
             <source src="/ramesh-video.mp4" type="video/mp4" />
-            <source src="https://raw.githubusercontent.com/Ramesh2200/ramesh-portfolio/main/public/ramesh-video.mp4" type="video/mp4" />
-            <source src="/videos/ramesh-video.mp4" type="video/mp4" />
           </video>
 
           {/* Minimal transparent contrast overlay to keep front text sharp & neat */}
@@ -179,6 +181,28 @@ export function App() {
             aria-label={isVideoMuted ? "Unmute Audio" : "Mute Audio"}
           >
             {isVideoMuted ? <VolumeX className="w-3.5 h-3.5" /> : <Volume2 className="w-3.5 h-3.5" />}
+          </button>
+          <div className="h-3 w-px bg-white/15"></div>
+          <button
+            type="button"
+            onClick={() => {
+              const next = bgVideoSrc === "/ramesh-video.mp4" ? "/videos/self-introduction.mp4" : "/ramesh-video.mp4";
+              setBgVideoSrc(next);
+            }}
+            className="px-2 py-0.5 rounded-md hover:bg-white/10 text-cyan-300 font-mono text-[11px] transition-colors"
+            title="Switch Background Video between Tech Reel and Self Intro"
+          >
+            {bgVideoSrc === "/ramesh-video.mp4" ? "Reel" : "Intro"}
+          </button>
+          <div className="h-3 w-px bg-white/15"></div>
+          <button
+            type="button"
+            onClick={() => setIntroModalOpen(true)}
+            className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-cyan-500/20 hover:bg-cyan-500/35 border border-cyan-400/50 text-cyan-200 hover:text-white font-mono text-[11px] font-bold transition-all cursor-pointer shadow-sm"
+            title="Watch Self Introduction Video in High Definition"
+          >
+            <Play className="w-2.5 h-2.5 fill-current text-cyan-400" />
+            <span>Self Intro</span>
           </button>
         </div>
 

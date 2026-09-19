@@ -51,10 +51,11 @@ export function Projects() {
         {/* Featured Projects Cards Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch mb-12">
           {projects.map((project, index) => {
+            const isSmartParking = project.id === "smart-parking-system";
             const isEcommerce = project.id === "ecommerce-website";
             const isFeastFlow = project.id === "food-order-delivery";
             const posterImage = project.poster || project.previewImage;
-            const videoSrc = project.videoFile || (isEcommerce ? "/videos/ecommerce-demo.mp4" : isFeastFlow ? "/videos/food-delivery-demo.mp4" : null);
+            const videoSrc = project.videoFile || (isSmartParking ? "/videos/smart-vehicle-demo.mp4" : isEcommerce ? "/videos/ecommerce-demo.mp4" : isFeastFlow ? "/videos/food-delivery-demo.mp4" : null);
 
             return (
               <motion.div

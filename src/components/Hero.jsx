@@ -248,10 +248,11 @@ export function Hero({ onWatchIntro }) {
               {onWatchIntro && (
                 <button
                   onClick={onWatchIntro}
-                  className="flex items-center gap-2 px-4 py-3 rounded-xl bg-[#090e1a]/80 hover:bg-[#0f172a] border border-white/10 hover:border-cyan-500/30 text-slate-200 hover:text-white text-xs font-mono-code transition-all"
+                  className="flex items-center gap-2 px-5 py-3.5 rounded-xl bg-gradient-to-r from-cyan-500/20 via-sky-500/20 to-indigo-500/20 hover:from-cyan-500/35 hover:via-sky-500/35 hover:to-indigo-500/35 border border-cyan-400/50 hover:border-cyan-300 text-cyan-200 hover:text-white text-xs font-mono-code font-bold transition-all hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(6,182,212,0.25)] cursor-pointer"
+                  title="Watch Ramesh K Self Introduction Video"
                 >
-                  <Play className="w-3.5 h-3.5 text-cyan-400 fill-cyan-400" />
-                  <span>Watch Intro</span>
+                  <Play className="w-4 h-4 text-cyan-400 fill-cyan-400 animate-pulse" />
+                  <span>Watch Self Intro Video</span>
                 </button>
               )}
             </div>
@@ -355,6 +356,24 @@ export function Hero({ onWatchIntro }) {
 
                   {/* Soft Realistic Gradient Vignette at the base */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent pointer-events-none"></div>
+
+                  {/* Top-Left Floating Self Intro Video Button */}
+                  {onWatchIntro && (
+                    <button
+                      type="button"
+                      onClick={onWatchIntro}
+                      className="absolute top-3 left-3 px-3 py-1.5 rounded-full bg-slate-950/90 hover:bg-cyan-950/90 backdrop-blur-md border border-cyan-500/50 hover:border-cyan-400 shadow-xl flex items-center gap-2 group/playpill transition-all hover:scale-105 cursor-pointer z-20"
+                      title="Watch Self Introduction Video"
+                      aria-label="Watch Self Introduction Video"
+                    >
+                      <span className="w-5 h-5 rounded-full bg-cyan-500 flex items-center justify-center text-black shadow-[0_0_10px_rgba(6,182,212,0.8)] group-hover/playpill:scale-110 transition-transform">
+                        <Play className="w-2.5 h-2.5 fill-black ml-0.5" />
+                      </span>
+                      <span className="text-[10px] font-mono-code font-bold text-cyan-300 group-hover/playpill:text-white uppercase tracking-wider">
+                        Self Intro Video
+                      </span>
+                    </button>
+                  )}
 
                   {/* Top-Right Floating Live Status Pill */}
                   <div className="absolute top-3 right-3 px-3 py-1.5 rounded-full bg-slate-950/80 backdrop-blur-md border border-emerald-500/40 shadow-lg flex items-center gap-2">
