@@ -205,7 +205,7 @@ export function VoiceChatbot() {
     const q = query.toLowerCase().trim();
 
     if (q.includes("project") || q.includes("ecommerce") || q.includes("feastflow") || q.includes("work")) {
-      return "Ramesh has built two prominent full-stack applications: 1) A full-scale E-Commerce platform deployed on Vercel (ecommerce-app-1508.vercel.app) with React.js, Spring Boot, Hibernate, and MySQL. 2) FeastFlow, an end-to-end food order and delivery application (feastflow-food-delivery.vercel.app) with real-time order tracking and REST APIs.";
+      return "Ramesh has built two prominent full-stack applications: 1) A full-scale E-Commerce platform deployed on Vercel (ecommerce-gmail-auth.vercel.app) with React.js, Spring Boot, Hibernate, and MySQL. 2) FeastFlow, an end-to-end food order and delivery application (feastflow-food-delivery.vercel.app) with real-time order tracking and REST APIs.";
     }
 
     if (q.includes("certificate") || q.includes("degree certificate")) {
