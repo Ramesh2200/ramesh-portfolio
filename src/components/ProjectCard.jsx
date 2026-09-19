@@ -127,13 +127,25 @@ export function ProjectCard({ project, index, onWatchDemo }) {
             </div>
 
             <div className="terminal-body">
-              <div className="terminal-video-preview" onClick={() => onWatchDemo(project)} title="Click to watch project demonstration video">
-                <img
-                  src={project.poster}
-                  alt={`${project.title} Video Explanation Preview`}
-                  className="terminal-poster-img"
-                  loading="lazy"
-                />
+              <div className="terminal-video-preview cursor-pointer" onClick={() => onWatchDemo(project)} title="Click to watch full project demonstration video with audio">
+                {project.videoFile ? (
+                  <video
+                    src={project.videoFile}
+                    poster={project.poster}
+                    muted
+                    loop
+                    autoPlay
+                    playsInline
+                    className="terminal-poster-img object-cover w-full h-full"
+                  />
+                ) : (
+                  <img
+                    src={project.poster}
+                    alt={`${project.title} Video Explanation Preview`}
+                    className="terminal-poster-img"
+                    loading="lazy"
+                  />
+                )}
                 <div className="terminal-poster-overlay">
                   <div className="demo-play-circle-large">
                     <Play size={24} fill="currentColor" />

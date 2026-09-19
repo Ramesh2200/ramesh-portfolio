@@ -96,29 +96,14 @@ export function Hero({ onWatchIntro }) {
       id="hero"
       className="relative min-h-[92vh] flex items-center justify-center pt-28 pb-16 overflow-hidden"
     >
-      {/* 1. Large, Soft, Light-Colored Background Image Layer with Subtle Gradient & Blur */}
+      {/* 1. Transparent Ambient Glows & Dot-Matrix Accent */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden -z-10" aria-hidden="true">
-        {/* Soft Light Minimalist Studio Background Image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-1000"
-          style={{
-            backgroundImage: "url('/hero-soft-light-bg.jpg')",
-            opacity: 0.85,
-            filter: "brightness(1.03) contrast(0.98)"
-          }}
-        ></div>
-
-        {/* Diffuse Luminous Ambient Lighting */}
-        <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[70rem] h-[50rem] rounded-full bg-gradient-to-b from-white/70 via-cyan-100/30 to-transparent blur-[120px]"></div>
-        <div className="absolute top-1/3 right-1/4 w-[38rem] h-[38rem] rounded-full bg-indigo-200/30 blur-[140px]"></div>
-        <div className="absolute bottom-10 left-1/4 w-[40rem] h-[30rem] rounded-full bg-amber-100/30 blur-[130px]"></div>
-
-        {/* Elegant Vignette Gradient: keeps hero vibrant and readable across themes */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/40 via-[#050505]/25 to-[#050505]/65 dark:block hidden"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-transparent to-white/60 block dark:hidden"></div>
+        {/* Soft Ambient Luminous Accent */}
+        <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[60rem] h-[40rem] rounded-full bg-gradient-to-b from-cyan-500/10 via-sky-500/5 to-transparent blur-[130px]"></div>
+        <div className="absolute top-1/3 right-1/4 w-[32rem] h-[32rem] rounded-full bg-indigo-500/10 blur-[140px]"></div>
 
         {/* Subtle Technical Dot-Matrix Texture */}
-        <div className="absolute inset-0 dot-matrix opacity-25"></div>
+        <div className="absolute inset-0 dot-matrix opacity-10 pointer-events-none"></div>
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">

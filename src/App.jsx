@@ -59,6 +59,20 @@ export function App() {
     return () => window.removeEventListener("open-resume-modal", handleOpenResume);
   }, []);
 
+  // Ensure background video plays automatically
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.defaultMuted = true;
+      videoRef.current.muted = true;
+      const playPromise = videoRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise.catch((err) => {
+          console.log("Video autoplay handling:", err);
+        });
+      }
+    }
+  }, []);
+
   return (
     <Router>
       <ScrollToTop />
@@ -77,10 +91,11 @@ export function App() {
             preload="auto"
             className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
             style={{
-              opacity: 0.95
+              opacity: isVideoPlaying ? videoOpacity : 0
             }}
           >
             <source src="/ramesh-video.mp4" type="video/mp4" />
+            <source src="https://raw.githubusercontent.com/Ramesh2200/ramesh-portfolio/main/public/ramesh-video.mp4" type="video/mp4" />
             <source src="/videos/ramesh-video.mp4" type="video/mp4" />
           </video>
 

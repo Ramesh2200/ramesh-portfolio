@@ -2,5 +2,13 @@ node_modules
 dist
 .git
 .DS_Store
-public/videos
-public/videos/*
+public/videos/*.mov
+public/videos/AntigravityEcommerce.mov
+public/videos/food-delivery-demo.mp4
+public/videos/self-introduction.mp4
+!public/videos/ramesh-video.mp4
+!public/videos/smart-vehicle-demo.mp4
+!public/videos/Smartvehicle.mp4
+!public/videos/ecommerce-demo.mp4
+!public/ecommerce-demo.mp4
+!public/ramesh-video.mp4

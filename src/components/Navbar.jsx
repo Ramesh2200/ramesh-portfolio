@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, Download, Code2, FileText } from "lucide-react";
-import { ThemeToggle } from "./ThemeToggle";
 import { profile } from "../data/profile";
 import { downloadResume } from "../utils/downloadResume";
 import { IconicRLogo } from "./IconicRLogo";
@@ -129,10 +128,8 @@ export function Navbar() {
           })}
         </nav>
 
-        {/* Right Status Badge, Theme Toggle & Resume CTA */}
+        {/* Right Status Badge & Resume CTA */}
         <div className="hidden md:flex items-center gap-3">
-          <ThemeToggle />
-
           <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono-code">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
             <span>Available to Hire</span>
@@ -151,8 +148,6 @@ export function Navbar() {
 
         {/* Mobile Menu Button */}
         <div className="flex md:hidden items-center gap-2">
-          <ThemeToggle />
-
           <button
             type="button"
             onClick={(e) => downloadResume(e, "Ramesh_K_Resume.pdf", profile.resumePath)}
