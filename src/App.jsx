@@ -63,11 +63,11 @@ export function App() {
     <Router>
       <ScrollToTop />
       {isLoading && <LoadingScreen onFinish={() => setIsLoading(false)} />}
-      <div className="relative min-h-screen bg-[#050505] text-slate-100 selection:bg-cyan-500/35 selection:text-white flex flex-col justify-between">
+      <div className="relative min-h-screen bg-transparent text-slate-100 selection:bg-cyan-500/35 selection:text-white flex flex-col justify-between">
         
-        {/* Atmospheric Dynamic Background Video Layer */}
+        {/* Full HD Background Video Layer - High visibility at 95% opacity */}
         <div className="fixed inset-0 pointer-events-none -z-10 overflow-hidden" aria-hidden="true">
-          {/* Main Background Video - Set to 95% opacity per user prompt */}
+          {/* Main Background Video */}
           <video
             ref={videoRef}
             autoPlay
@@ -75,10 +75,9 @@ export function App() {
             muted={isVideoMuted}
             playsInline
             preload="auto"
-            className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000"
+            className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
             style={{
-              opacity: 0.95,
-              filter: "brightness(0.78) contrast(1.10) saturate(1.15)"
+              opacity: 0.95
             }}
           >
             <source src="/ramesh-video.mp4" type="video/mp4" />
@@ -87,24 +86,15 @@ export function App() {
 
           {/* Fallback Static Image Layer */}
           <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-700 pointer-events-none -z-10"
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none -z-20"
             style={{
               backgroundImage: "url('/assets/colorful-tech-bg.jpg')",
-              opacity: 0.25
+              opacity: 0.3
             }}
           ></div>
 
-          {/* Deep Cinematic Contrast Vignette with subtle backdrop blur for crisp front text legibility */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/75 via-[#050505]/40 to-[#050505]/80 pointer-events-none backdrop-blur-[0.5px]" />
-
-          {/* Multi-Color Neon Glowing Ambient Orbs */}
-          <div className="orb-cyan absolute top-10 -left-20 w-[40rem] h-[40rem] rounded-full bg-gradient-to-tr from-cyan-500/20 via-sky-500/15 to-transparent blur-[150px]"></div>
-          <div className="orb-indigo absolute top-1/2 -right-24 w-[44rem] h-[44rem] rounded-full bg-gradient-to-bl from-fuchsia-600/20 via-indigo-600/15 to-purple-600/10 blur-[160px]"></div>
-          <div className="absolute -bottom-10 left-1/4 w-[36rem] h-[36rem] rounded-full bg-gradient-to-tr from-emerald-500/15 via-teal-500/10 to-transparent blur-[140px]"></div>
-
-          {/* Grid and Dot-Matrix Textures */}
-          <div className="absolute inset-0 dot-matrix opacity-25"></div>
-          <div className="absolute inset-0 technical-grid opacity-20"></div>
+          {/* Minimal transparent contrast overlay to keep front text sharp & neat */}
+          <div className="absolute inset-0 bg-black/25 pointer-events-none" />
         </div>
 
         {/* Global Sticky Glass Navbar */}
