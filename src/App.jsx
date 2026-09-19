@@ -78,21 +78,22 @@ export function App() {
     <Router>
       <ScrollToTop />
       {isLoading && <LoadingScreen onFinish={() => setIsLoading(false)} />}
-      <div className="relative min-h-screen bg-transparent text-slate-100 selection:bg-cyan-500/35 selection:text-white flex flex-col justify-between">
+      <div className="relative min-h-screen bg-transparent text-slate-100 selection:bg-cyan-500/35 selection:text-white">
         
-        {/* Full HD Background Video Layer - High visibility at 95% opacity */}
-        <div className="fixed inset-0 pointer-events-none -z-10 overflow-hidden" aria-hidden="true">
+        {/* Full HD Background Video Layer - High visibility at 95% opacity in front of canvas */}
+        <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
           {/* Main Background Video */}
           <video
             ref={videoRef}
             autoPlay
             loop
-            muted={isVideoMuted}
+            muted
             playsInline
             preload="auto"
             className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700"
             style={{
-              opacity: isVideoPlaying ? videoOpacity : 0
+              opacity: isVideoPlaying ? videoOpacity : 0,
+              filter: "brightness(1.05) contrast(1.05)"
             }}
           >
             <source src="/ramesh-video.mp4" type="video/mp4" />
@@ -100,39 +101,33 @@ export function App() {
             <source src="/videos/ramesh-video.mp4" type="video/mp4" />
           </video>
 
-          {/* Fallback Static Image Layer */}
-          <div
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none -z-20"
-            style={{
-              backgroundImage: "url('/assets/colorful-tech-bg.jpg')",
-              opacity: 0.3
-            }}
-          ></div>
-
           {/* Minimal transparent contrast overlay to keep front text sharp & neat */}
-          <div className="absolute inset-0 bg-black/25 pointer-events-none" />
+          <div className="absolute inset-0 bg-black/15 pointer-events-none" />
         </div>
 
-        {/* Global Sticky Glass Navbar */}
-        <Navbar />
+        {/* Foreground Content with z-10 */}
+        <div className="relative z-10 flex flex-col justify-between min-h-screen">
+          {/* Global Sticky Glass Navbar */}
+          <Navbar />
 
-        {/* Multi-Page & Continuous Navigation Routes */}
-        <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<HomePage onWatchIntro={() => setIntroModalOpen(true)} />} />
-            <Route path="/skills" element={<SkillsPage />} />
-            <Route path="/projects" element={<ProjectsPage />} />
-            <Route path="/education" element={<EducationPage />} />
-            <Route path="/experience" element={<ExperienceContactPage />} />
-            <Route path="/contact" element={<ExperienceContactPage />} />
-            <Route path="/experience-contact" element={<ExperienceContactPage />} />
-            {/* Fallback route */}
-            <Route path="*" element={<HomePage onWatchIntro={() => setIntroModalOpen(true)} />} />
-          </Routes>
-        </main>
+          {/* Multi-Page & Continuous Navigation Routes */}
+          <main className="flex-grow">
+            <Routes>
+              <Route path="/" element={<HomePage onWatchIntro={() => setIntroModalOpen(true)} />} />
+              <Route path="/skills" element={<SkillsPage />} />
+              <Route path="/projects" element={<ProjectsPage />} />
+              <Route path="/education" element={<EducationPage />} />
+              <Route path="/experience" element={<ExperienceContactPage />} />
+              <Route path="/contact" element={<ExperienceContactPage />} />
+              <Route path="/experience-contact" element={<ExperienceContactPage />} />
+              {/* Fallback route */}
+              <Route path="*" element={<HomePage onWatchIntro={() => setIntroModalOpen(true)} />} />
+            </Routes>
+          </main>
 
-        {/* Global Sleek Footer */}
-        <Footer />
+          {/* Global Sleek Footer */}
+          <Footer />
+        </div>
 
         {/* Interactive Voice Chatbot */}
         <VoiceChatbot />
@@ -153,6 +148,20 @@ export function App() {
             BG Video
           </span>
           <div className="h-3 w-px bg-white/15 hidden sm:block"></div>
+          <button
+            type="button"
+            onClick={() => {
+              const opacities = [0.95, 1.0, 0.85, 0.65];
+              const curIdx = opacities.indexOf(videoOpacity);
+              const next = opacities[curIdx >= 0 ? (curIdx + 1) % opacities.length : 0];
+              setVideoOpacity(next);
+            }}
+            className="px-2 py-0.5 rounded-md hover:bg-white/10 text-cyan-300 font-mono text-[11px] transition-colors"
+            title="Click to cycle background video opacity"
+          >
+            {Math.round(videoOpacity * 100)}%
+          </button>
+          <div className="h-3 w-px bg-white/15"></div>
           <button
             type="button"
             onClick={toggleVideoPlay}

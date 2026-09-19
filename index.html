@@ -5,6 +5,14 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#07080b" />
+    <script>
+      try {
+        localStorage.removeItem("ramesh_portfolio_theme");
+        document.documentElement.classList.add("dark");
+        document.documentElement.classList.remove("light");
+        document.documentElement.setAttribute("data-theme", "dark");
+      } catch (e) {}
+    </script>
     
     <!-- SEO Best Practices -->
     <title>Ramesh K | Java Full Stack Developer</title>

@@ -1,8 +1,8 @@
-/* Modern Minimalist Loading Screen matching reference design */
+/* Modern Dark Loading Screen matching portfolio dark aesthetics */
 .modern-loading-screen {
   position: fixed;
   inset: 0;
-  background: #ffffff;
+  background: #050505;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,13 +18,13 @@
   pointer-events: none;
 }
 
-/* Ambient Radial Red / Coral Glow behind card */
+/* Ambient Radial Cyan / Indigo Glow behind card */
 .ambient-glow-circle {
   position: absolute;
   width: 550px;
   height: 550px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 60, 60, 0.08) 0%, rgba(255, 100, 100, 0.03) 50%, transparent 70%);
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.12) 0%, rgba(99, 102, 241, 0.05) 50%, transparent 70%);
   pointer-events: none;
   animation: breathe-ambient 2.5s ease-in-out infinite alternate;
 }
@@ -49,14 +49,14 @@
 .monogram-outer-frame {
   width: 82px;
   height: 82px;
-  border: 1.5px dashed rgba(255, 60, 60, 0.5);
+  border: 1.5px dashed rgba(6, 182, 212, 0.5);
   border-radius: 22px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 70, 70, 0.02);
+  background: rgba(6, 182, 212, 0.04);
   margin-bottom: 24px;
-  box-shadow: 0 0 25px rgba(255, 60, 60, 0.08);
+  box-shadow: 0 0 25px rgba(6, 182, 212, 0.15);
   animation: gentle-bob 2.5s ease-in-out infinite alternate;
 }
 
@@ -69,12 +69,13 @@
 .monogram-inner-box {
   width: 60px;
   height: 60px;
-  background: #0d1117;
+  background: #090d16;
+  border: 1px solid rgba(6, 182, 212, 0.3);
   border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
 }
 
 .monogram-initials {
@@ -86,7 +87,7 @@
 }
 
 .monogram-red-dot {
-  color: #ff3838;
+  color: #06b6d4;
   font-weight: 900;
 }
 
@@ -101,17 +102,17 @@
   gap: 8px;
   padding: 6px 18px;
   border-radius: 9999px;
-  background: rgba(255, 59, 59, 0.07);
-  border: 1px solid rgba(255, 59, 59, 0.25);
-  box-shadow: 0 0 16px rgba(255, 59, 59, 0.1);
+  background: rgba(6, 182, 212, 0.08);
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  box-shadow: 0 0 16px rgba(6, 182, 212, 0.15);
 }
 
 .pill-pulse-dot {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background-color: #ff3b3b;
-  box-shadow: 0 0 8px #ff3b3b;
+  background-color: #06b6d4;
+  box-shadow: 0 0 8px #06b6d4;
   animation: pulse-dot-glow 1.4s ease-in-out infinite;
 }
 
@@ -125,7 +126,7 @@
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.1em;
-  color: #ff3b3b;
+  color: #38bdf8;
   text-transform: uppercase;
 }
 
@@ -133,7 +134,7 @@
 .modern-loading-title {
   font-size: 34px;
   font-weight: 800;
-  color: #0b0f19;
+  color: #ffffff;
   letter-spacing: -0.03em;
   margin: 0 0 8px 0;
   line-height: 1.15;
@@ -148,7 +149,7 @@
 .modern-status-msg {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: 13px;
-  color: #475569;
+  color: #94a3b8;
   letter-spacing: -0.01em;
 }
 
@@ -157,7 +158,7 @@
   width: 100%;
   max-width: 360px;
   height: 4px;
-  background: rgba(0, 0, 0, 0.06);
+  background: rgba(255, 255, 255, 0.08);
   border-radius: 9999px;
   overflow: hidden;
   margin-bottom: 10px;
@@ -165,9 +166,9 @@
 
 .modern-progressbar-fill {
   height: 100%;
-  background: linear-gradient(90deg, #ff3b3b 0%, #ff6b6b 100%);
+  background: linear-gradient(90deg, #06b6d4 0%, #6366f1 100%);
   border-radius: 9999px;
-  box-shadow: 0 0 10px rgba(255, 59, 59, 0.4);
+  box-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
   transition: width 0.04s linear;
 }
 
@@ -183,11 +184,11 @@
 }
 
 .meta-sequence-tag {
-  color: #94a3b8;
+  color: #64748b;
   letter-spacing: 0.05em;
 }
 
 .meta-pct-tag {
-  color: #ff3b3b;
+  color: #06b6d4;
   font-weight: 700;
 }
