@@ -31,6 +31,7 @@ export function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [isVideoPlaying, setIsVideoPlaying] = useState(true);
   const [isVideoMuted, setIsVideoMuted] = useState(true);
+  const [videoOpacity, setVideoOpacity] = useState(0.95);
   const videoRef = useRef(null);
 
   const toggleVideoPlay = () => {
