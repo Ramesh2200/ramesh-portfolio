@@ -5,7 +5,7 @@ dist
 public/videos/*.mov
 public/videos/AntigravityEcommerce.mov
 public/videos/food-delivery-demo.mp4
-public/videos/self-introduction.mp4
+!public/videos/self-introduction.mp4
 !public/videos/ramesh-video.mp4
 !public/videos/smart-vehicle-demo.mp4
 !public/videos/Smartvehicle.mp4

@@ -54,6 +54,14 @@ export function VideoModal({ videoData, project, isOpen, onClose }) {
 
   const handleVideoError = (e) => {
     console.warn("Video failed to play:", currentSrc, e);
+    const githubFallback = isIntro
+      ? "https://raw.githubusercontent.com/Ramesh2200/ramesh-portfolio/main/public/videos/self-introduction.mp4"
+      : null;
+    if (githubFallback && currentSrc !== githubFallback) {
+      console.info("Switching to GitHub CDN video source:", githubFallback);
+      setCurrentSrc(githubFallback);
+      return;
+    }
     if (data?.fallbackVideo && currentSrc !== data.fallbackVideo) {
       console.info("Switching to fallback video:", data.fallbackVideo);
       setCurrentSrc(data.fallbackVideo);
@@ -147,9 +155,15 @@ export function VideoModal({ videoData, project, isOpen, onClose }) {
                   poster={posterImg}
                   className="modal-video-element"
                   key={currentSrc}
-                  src={currentSrc}
                   onError={handleVideoError}
                 >
+                  <source src={currentSrc} type="video/mp4" />
+                  {isIntro && currentSrc !== "https://raw.githubusercontent.com/Ramesh2200/ramesh-portfolio/main/public/videos/self-introduction.mp4" && (
+                    <source
+                      src="https://raw.githubusercontent.com/Ramesh2200/ramesh-portfolio/main/public/videos/self-introduction.mp4"
+                      type="video/mp4"
+                    />
+                  )}
                   Your browser does not support the video tag.
                 </video>
               )}
